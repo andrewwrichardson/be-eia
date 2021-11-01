@@ -3,3 +3,9 @@ exports.jsToPgFormatProjects = (data) => {
 		return [item.project_name];
 	});
 };
+
+exports.jsToPgFormatAssessmentAreas = (data) => {
+	return data.map((item) => {
+		return [item.project_id, item.geometry];
+	});
+};
