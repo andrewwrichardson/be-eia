@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "psql -f ./db/setup.sql && jest --verbose --runInBand",
+		"setup-dbs": "psql -f ./db/setup.sql",
+		"seed": "node ./db/seeds/run-seed.js"
 	},
 	"repository": {
 		"type": "git",
