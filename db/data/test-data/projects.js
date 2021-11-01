@@ -1,4 +1,4 @@
-mudule.exports = [
+module.exports = [
 	{
 		project_name: 'Project One',
 	},
