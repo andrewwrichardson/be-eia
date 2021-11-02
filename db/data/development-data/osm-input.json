@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/45002074",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:country": "GB",
+        "addr:housename": "Wellington Buildings",
+        "addr:street": "Wellington Street",
+        "building": "yes",
+        "id": "way/45002074"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9320938, 54.5964287],
+            [-5.9321077, 54.5965509],
+            [-5.9326629, 54.5965297],
+            [-5.932649, 54.5964076],
+            [-5.9325301, 54.5964121],
+            [-5.9323714, 54.5964182],
+            [-5.9322525, 54.5964227],
+            [-5.9322128, 54.5964242],
+            [-5.9321732, 54.5964257],
+            [-5.9320938, 54.5964287]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/60611449",
+      "properties": {
+        "name": "Lagan Navigation (abandoned)",
+        "notes": "non-navigable",
+        "source": "survey",
+        "waterway": "canal",
+        "id": "way/60611449"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-6.2414445, 54.5104985],
+          [-6.2427297, 54.5110303]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6815757288",
+      "properties": {
+        "addr:street": "Howard Street",
+        "amenity": "restaurant",
+        "name": "Flame",
+        "id": "node/6815757288"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9334585, 54.5957029]
+      }
+    }
+  ]
+}

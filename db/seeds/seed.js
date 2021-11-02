@@ -1,5 +1,12 @@
 const format = require("pg-format");
 const db = require("../connection");
+const {
+  jsToPgFormatProjects,
+  jsToPgFormatAssessmentAreas,
+  jsToPgFormatPublicApis,
+  jsToPgFormatReceptors,
+  jsToPgFormatComments,
+} = require(`../utils/data-manipulation.utils`);
 
 const seed = async (data) => {
   const { assessmentAreas, comments, projects, publicApis, receptors } = data;
@@ -14,6 +21,14 @@ const seed = async (data) => {
         project_name VARCHAR(200) NOT NULL
     );
     `);
+
+  const formattedProjects = jsToPgFormatProjects(projects);
+  let queryString = format(
+    `INSERT INTO projects (project_name) VALUES %L RETURNING *;`,
+    formattedProjects
+  );
+  await db.query(queryString);
+
   await db.query(`
 	    CREATE TABLE assessment_areas (
 	    assessment_area_id SERIAL PRIMARY KEY NOT NULL,
@@ -22,6 +37,15 @@ const seed = async (data) => {
 	    geom geography
 	);
 	`);
+
+  const formattedAssessmentAreas = jsToPgFormatAssessmentAreas(assessmentAreas);
+  queryString = format(
+    `INSERT INTO assessment_areas (project_id,geom) VALUES %L RETURNING *;`,
+    formattedAssessmentAreas
+  );
+
+  await db.query(queryString);
+
   await db.query(`
         CREATE TABLE public_apis (
         api_id SERIAL PRIMARY KEY NOT NULL,
@@ -30,6 +54,14 @@ const seed = async (data) => {
         category TEXT NOT NULL
     );
     `);
+
+  const formattedPublicApis = jsToPgFormatPublicApis(publicApis);
+  queryString = format(
+    `INSERT INTO public_apis (url, source, category) VALUES %L RETURNING *;`,
+    formattedPublicApis
+  );
+  await db.query(queryString);
+
   await db.query(`
     CREATE TABLE receptors (
         receptor_id SERIAL PRIMARY KEY NOT NULL,
@@ -43,6 +75,15 @@ const seed = async (data) => {
         properties TEXT  
     );    
     `);
+
+  const formattedReceptors = jsToPgFormatReceptors(receptors);
+  queryString = format(
+    `INSERT INTO receptors (project_id, api_id, geom,osm_id, type, properties) VALUES %L RETURNING *;`,
+    formattedReceptors
+  );
+
+  await db.query(queryString);
+
   await db.query(`
         CREATE TABLE comments (
         comment_id SERIAL PRIMARY KEY NOT NULL,
@@ -52,6 +93,14 @@ const seed = async (data) => {
         comment TEXT NOT NULL
     );
     `);
+
+  const formattedComments = jsToPgFormatComments(comments);
+  queryString = format(
+    `INSERT INTO comments (receptor_id, impact, comment) VALUES %L RETURNING *;`,
+    formattedComments
+  );
+
+  await db.query(queryString);
 };
 
 module.exports = { seed };
