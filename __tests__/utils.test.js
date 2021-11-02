@@ -3,6 +3,7 @@ const {
 	jsToPgFormatAssessmentAreas,
 	jsToPgFormatPublicApis,
 	jsToPgFormatReceptors,
+	jsToPgFormatComments,
 } = require('../db/utils/data-manipulation');
 
 describe('jsToPgFormatProjects', () => {
@@ -224,6 +225,31 @@ describe('jsToPgFormatReceptors', () => {
 					],
 				},
 			],
+		]);
+	});
+});
+
+describe('jsToPgFormatComments', () => {
+	const rawData = [
+		{
+			receptor_id: 1,
+			impact: 'low',
+			comment: 'bla bla bla bla bla',
+		},
+	];
+	test('should not mutate', () => {
+		jsToPgFormatComments(rawData);
+		expect(rawData).toEqual([
+			{
+				receptor_id: 1,
+				impact: 'low',
+				comment: 'bla bla bla bla bla',
+			},
+		]);
+	});
+	test('should return formated array', () => {
+		expect(jsToPgFormatComments(rawData)).toEqual([
+			[1, 'low', 'bla bla bla bla bla'],
 		]);
 	});
 });

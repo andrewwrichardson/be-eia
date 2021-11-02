@@ -21,3 +21,9 @@ exports.jsToPgFormatReceptors = (data) => {
 		return [item.project_id, item.api_id, item.geometry];
 	});
 };
+
+exports.jsToPgFormatComments = (data) => {
+	return data.map((item) => {
+		return [item.receptor_id, item.impact, item.comment];
+	});
+};
