@@ -1,3 +1,5 @@
+const { geojsonCollectionToPostgis } = require(`./geojson.utils`);
+
 exports.jsToPgFormatProjects = (data) => {
   return data.map((item) => {
     return [item.project_name];
@@ -18,11 +20,13 @@ exports.jsToPgFormatPublicApis = (data) => {
 
 exports.jsToPgFormatReceptors = (data) => {
   return data.map((item) => {
-    item.geometry.map((feat) => {
+    console.log(item, "<<<<");
+    const postGISData = geojsonCollectionToPostgis(item.geometry);
+    item.geometry.features.map((feat, index) => {
       return [
         item.project_id,
         item.api_id,
-        ,
+        postGISData[index],
         feat.id,
         feat.geometry.type,
         JSON.stringify(feat.properties),
