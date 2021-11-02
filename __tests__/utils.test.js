@@ -2,6 +2,7 @@ const {
 	jsToPgFormatProjects,
 	jsToPgFormatAssessmentAreas,
 	jsToPgFormatPublicApis,
+	jsToPgFormatReceptors,
 } = require('../db/utils/data-manipulation');
 
 describe('jsToPgFormatProjects', () => {
@@ -133,6 +134,95 @@ describe('jsToPgFormatPublicApis', () => {
 				'https://lz4.overpass-api.de/api/interpreter/?data=[out:json][timeout:25];(node["addr:street"]',
 				'Open Steet Map',
 				'Community and Private Assets',
+			],
+		]);
+	});
+});
+
+describe('jsToPgFormatReceptors', () => {
+	const rawData = [
+		{
+			project_id: 1,
+			api_id: 1,
+			geometry: {
+				type: 'FeatureCollection',
+				features: [
+					{
+						type: 'Feature',
+						properties: {},
+						geometry: {
+							type: 'Polygon',
+							coordinates: [
+								[
+									[26.911211907863617, 46.5411778562022],
+									[26.911265552043915, 46.54002846380659],
+									[26.911895871162415, 46.54003215370873],
+									[26.911721527576447, 46.54124980772586],
+									[26.911211907863617, 46.5411778562022],
+								],
+							],
+						},
+					},
+				],
+			},
+		},
+	];
+	test('should not mutate', () => {
+		jsToPgFormatReceptors(rawData);
+		expect(rawData).toEqual([
+			{
+				project_id: 1,
+				api_id: 1,
+				geometry: {
+					type: 'FeatureCollection',
+					features: [
+						{
+							type: 'Feature',
+							properties: {},
+							geometry: {
+								type: 'Polygon',
+								coordinates: [
+									[
+										[26.911211907863617, 46.5411778562022],
+										[26.911265552043915, 46.54002846380659],
+										[26.911895871162415, 46.54003215370873],
+										[26.911721527576447, 46.54124980772586],
+										[26.911211907863617, 46.5411778562022],
+									],
+								],
+							},
+						},
+					],
+				},
+			},
+		]);
+	});
+	test('should return formated array', () => {
+		expect(jsToPgFormatReceptors(rawData)).toEqual([
+			[
+				1,
+				1,
+				{
+					type: 'FeatureCollection',
+					features: [
+						{
+							type: 'Feature',
+							properties: {},
+							geometry: {
+								type: 'Polygon',
+								coordinates: [
+									[
+										[26.911211907863617, 46.5411778562022],
+										[26.911265552043915, 46.54002846380659],
+										[26.911895871162415, 46.54003215370873],
+										[26.911721527576447, 46.54124980772586],
+										[26.911211907863617, 46.5411778562022],
+									],
+								],
+							},
+						},
+					],
+				},
 			],
 		]);
 	});

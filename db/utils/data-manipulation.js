@@ -15,3 +15,9 @@ exports.jsToPgFormatPublicApis = (data) => {
 		return [item.url, item.source, item.category];
 	});
 };
+
+exports.jsToPgFormatReceptors = (data) => {
+	return data.map((item) => {
+		return [item.project_id, item.api_id, item.geometry];
+	});
+};
