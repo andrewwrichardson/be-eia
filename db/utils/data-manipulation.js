@@ -9,3 +9,9 @@ exports.jsToPgFormatAssessmentAreas = (data) => {
 		return [item.project_id, item.geometry];
 	});
 };
+
+exports.jsToPgFormatPublicApis = (data) => {
+	return data.map((item) => {
+		return [item.url, item.source, item.category];
+	});
+};

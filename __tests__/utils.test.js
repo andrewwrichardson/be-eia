@@ -1,6 +1,7 @@
 const {
 	jsToPgFormatProjects,
 	jsToPgFormatAssessmentAreas,
+	jsToPgFormatPublicApis,
 } = require('../db/utils/data-manipulation');
 
 describe('jsToPgFormatProjects', () => {
@@ -103,6 +104,35 @@ describe('jsToPgFormatAssessmentAreas', () => {
 						},
 					],
 				},
+			],
+		]);
+	});
+});
+
+describe('jsToPgFormatPublicApis', () => {
+	const rawData = [
+		{
+			url: 'https://lz4.overpass-api.de/api/interpreter/?data=[out:json][timeout:25];(node["addr:street"]',
+			source: 'Open Steet Map',
+			category: 'Community and Private Assets',
+		},
+	];
+	test('should not mutate', () => {
+		jsToPgFormatPublicApis(rawData);
+		expect(rawData).toEqual([
+			{
+				url: 'https://lz4.overpass-api.de/api/interpreter/?data=[out:json][timeout:25];(node["addr:street"]',
+				source: 'Open Steet Map',
+				category: 'Community and Private Assets',
+			},
+		]);
+	});
+	test('should return formated data array', () => {
+		expect(jsToPgFormatPublicApis(rawData)).toEqual([
+			[
+				'https://lz4.overpass-api.de/api/interpreter/?data=[out:json][timeout:25];(node["addr:street"]',
+				'Open Steet Map',
+				'Community and Private Assets',
 			],
 		]);
 	});
