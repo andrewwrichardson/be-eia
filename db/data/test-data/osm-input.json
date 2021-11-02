@@ -1,0 +1,1243 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/45002074",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:country": "GB",
+        "addr:housename": "Wellington Buildings",
+        "addr:street": "Wellington Street",
+        "building": "yes",
+        "id": "way/45002074"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9320938, 54.5964287],
+            [-5.9321077, 54.5965509],
+            [-5.9326629, 54.5965297],
+            [-5.932649, 54.5964076],
+            [-5.9325301, 54.5964121],
+            [-5.9323714, 54.5964182],
+            [-5.9322525, 54.5964227],
+            [-5.9322128, 54.5964242],
+            [-5.9321732, 54.5964257],
+            [-5.9320938, 54.5964287]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/141743091",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housename": "Cecil Ward Building",
+        "addr:housenumber": "4-10",
+        "addr:postcode": "BT2 8BP",
+        "addr:street": "Linenhall Street",
+        "building": "public",
+        "government": "council",
+        "name": "Cecil Ward Building",
+        "office": "government",
+        "operator": "Belfast City Council",
+        "source": "Bing",
+        "id": "way/141743091"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9292877, 54.5954813],
+            [-5.9297953, 54.5954556],
+            [-5.9297393, 54.5950836],
+            [-5.9292316, 54.5951093],
+            [-5.9292877, 54.5954813]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/199547868",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:postcode": "BT1 6DW",
+        "addr:street": "Wellington Street",
+        "alt_name": "Assembly Buildings",
+        "alt_name_1": "Church House (Presbyterian Church in Ireland)",
+        "alt_name_2": "Fisherwick Place",
+        "amenity": "exhibition_centre",
+        "amenity_1": "restaurant",
+        "amenity_2": "church_hall",
+        "building": "yes",
+        "name": "Spires Centre",
+        "name:zh": "斯派尔斯购物中心",
+        "shop": "mall",
+        "source": "http://visit-belfast.com/things-to-do/member/spires",
+        "source_1": "http://www.assemblybuildings.co.uk/",
+        "id": "way/199547868"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9343827, 54.5962474],
+            [-5.9343433, 54.5958744],
+            [-5.9332223, 54.5959141],
+            [-5.9332616, 54.5962871],
+            [-5.9343827, 54.5962474]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/298238554",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housename": "Scottish Provident Building",
+        "addr:housenumber": "7",
+        "addr:postcode": "BT1 6JH",
+        "addr:street": "Donegall Square West",
+        "building": "commercial",
+        "building:levels": "8",
+        "height": "45 m",
+        "name": "Scottish Provident Building",
+        "smoking": "no",
+        "id": "way/298238554"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9321285, 54.5970547],
+            [-5.9321141, 54.5969451],
+            [-5.9319325, 54.5969531],
+            [-5.9319403, 54.597012],
+            [-5.9319176, 54.597013],
+            [-5.9319126, 54.5969749],
+            [-5.9319041, 54.5969637],
+            [-5.9318854, 54.5969603],
+            [-5.9318337, 54.596962],
+            [-5.931831, 54.5969351],
+            [-5.9319792, 54.5969301],
+            [-5.9319763, 54.5969017],
+            [-5.9318795, 54.596905],
+            [-5.9318726, 54.5968375],
+            [-5.9318628, 54.5966932],
+            [-5.9318589, 54.5966615],
+            [-5.9319488, 54.5966577],
+            [-5.9319527, 54.5966896],
+            [-5.932026, 54.5966865],
+            [-5.9320148, 54.5965962],
+            [-5.9319445, 54.5965991],
+            [-5.9319484, 54.5966311],
+            [-5.9318565, 54.5966349],
+            [-5.9318413, 54.5965117],
+            [-5.9319332, 54.5965079],
+            [-5.93194, 54.5965632],
+            [-5.9320109, 54.5965602],
+            [-5.9319967, 54.5964455],
+            [-5.9316742, 54.5964596],
+            [-5.9316444, 54.5964812],
+            [-5.9316718, 54.5967011],
+            [-5.9316883, 54.5968441],
+            [-5.9317081, 54.5970556],
+            [-5.9317421, 54.5970727],
+            [-5.9321285, 54.5970547]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/298238555",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "20",
+        "addr:postcode": "BT1 6GE",
+        "addr:street": "Wellington Place",
+        "building": "commercial",
+        "building:levels": "9",
+        "name": "Pricewaterhouse Coopers",
+        "smoking": "no",
+        "id": "way/298238555"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9330696, 54.5966202],
+            [-5.9328189, 54.5966303],
+            [-5.932848, 54.5968733],
+            [-5.9324818, 54.596888],
+            [-5.9324534, 54.5966513],
+            [-5.9325313, 54.5966482],
+            [-5.9325266, 54.5966094],
+            [-5.9320719, 54.5966277],
+            [-5.9321141, 54.5969451],
+            [-5.9321285, 54.5970547],
+            [-5.9322811, 54.5970502],
+            [-5.9331182, 54.5970252],
+            [-5.9330696, 54.5966202]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/298238556",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "14",
+        "addr:postcode": "BT1 6JS",
+        "addr:street": "Donegall Square West",
+        "amenity": "bank",
+        "atm": "yes",
+        "brand": "Danske Bank",
+        "brand:wikidata": "Q1636974",
+        "brand:wikipedia": "en:Danske Bank",
+        "building": "yes",
+        "building:levels": "7",
+        "fhrs:id": "64210",
+        "height": "35 m",
+        "min_height": "0",
+        "name": "Danske Bank",
+        "name:da": "Danske Bank",
+        "opening_hours": "09:30-16:00",
+        "phone": "+44 28 9004 6100",
+        "source:housenumber": "FHRS Open Data",
+        "website": "https://www.danskebank.co.uk/en-gb/Personal/customer-service/Find-your-nearest-branch/Branches/Pages/32AN-donegall-square-west.aspx",
+        "id": "way/298238556"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.932248, 54.5963852],
+            [-5.9322092, 54.5959871],
+            [-5.9316101, 54.5960136],
+            [-5.9316559, 54.5964036],
+            [-5.932248, 54.5963852]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/389884118",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housename": "Causeway Exchange",
+        "addr:housenumber": "1-7",
+        "addr:postcode": "BT2 7EG",
+        "addr:street": "Bedford Street",
+        "building": "yes",
+        "building:levels": "8",
+        "building:material": "brick",
+        "government": "ministry",
+        "name": "Department for Communities",
+        "office": "government",
+        "phone": "+44 28 9082 9000",
+        "source": "survey",
+        "source:geometry": "Bing",
+        "website": "https://www.communities-ni.gov.uk/",
+        "wikidata": "Q3044779",
+        "wikipedia": "en:Department for Communities",
+        "id": "way/389884118"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9320185, 54.5958105],
+            [-5.931992, 54.5955621],
+            [-5.9316815, 54.5955746],
+            [-5.9316663, 54.5954312],
+            [-5.9314959, 54.5954368],
+            [-5.9315325, 54.5957768],
+            [-5.9315386, 54.5958287],
+            [-5.9315944, 54.5958265],
+            [-5.9320185, 54.5958105]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/440735707",
+      "properties": {
+        "addr:housenumber": "14-18",
+        "addr:postcode": "BT2 7BA",
+        "addr:street": "Great Victoria Street",
+        "building": "yes",
+        "height": "46",
+        "id": "way/440735707"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9343026, 54.5953082],
+            [-5.9339857, 54.5953221],
+            [-5.9337149, 54.5953333],
+            [-5.9337268, 54.5954268],
+            [-5.9343144, 54.5954017],
+            [-5.9343026, 54.5953082]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/488274000",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "2-4",
+        "addr:postcode": "BT2 7HR",
+        "addr:street": "Great Victoria Street",
+        "amenity": "theatre",
+        "architect": "Frank Matcham",
+        "building": "yes",
+        "name": "Grand Opera House",
+        "start_date": "1895",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.goh.co.uk/",
+        "wheelchair": "limited",
+        "wikidata": "Q565078",
+        "wikipedia": "en:Grand Opera House, Belfast",
+        "id": "way/488274000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9354907, 54.5955538],
+            [-5.9354876, 54.5955158],
+            [-5.935481, 54.5954496],
+            [-5.9356904, 54.5954426],
+            [-5.9356854, 54.595403],
+            [-5.9358934, 54.595396],
+            [-5.9358696, 54.5951691],
+            [-5.9348691, 54.5952027],
+            [-5.9348065, 54.5952661],
+            [-5.9348212, 54.5953933],
+            [-5.934939, 54.5954551],
+            [-5.9349414, 54.5954794],
+            [-5.9348745, 54.5954816],
+            [-5.9348817, 54.5955535],
+            [-5.934913, 54.5955524],
+            [-5.9349154, 54.5955727],
+            [-5.9354907, 54.5955538]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/539787113",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:postcode": "BT1 5GS",
+        "addr:street": "Donegall Square",
+        "amenity": "townhall",
+        "building": "public",
+        "contact:phone": "+44 28 90320202",
+        "name": "Belfast City Hall",
+        "name:zh": "贝尔法斯特市政厅",
+        "operator": "Belfast City Council",
+        "tourism": "attraction",
+        "townhall:type": "city",
+        "website": "http://www.belfastcity.gov.uk/cityhall/index.asp",
+        "wheelchair": "yes",
+        "wikidata": "Q3351920",
+        "wikipedia": "en:Belfast City Hall",
+        "id": "way/539787113"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9293114, 54.5962546],
+            [-5.9297883, 54.5962368],
+            [-5.9297915, 54.5962718],
+            [-5.9298892, 54.5962686],
+            [-5.9298861, 54.5962331],
+            [-5.9301329, 54.5962237],
+            [-5.9301359, 54.5962584],
+            [-5.9302271, 54.5962554],
+            [-5.9302238, 54.5962202],
+            [-5.9304435, 54.5962123],
+            [-5.9304466, 54.5962556],
+            [-5.9305389, 54.5962525],
+            [-5.9305542, 54.5963859],
+            [-5.9305328, 54.5963864],
+            [-5.9305318, 54.5963754],
+            [-5.9304764, 54.5963778],
+            [-5.9304771, 54.5963849],
+            [-5.9304583, 54.5963856],
+            [-5.9304623, 54.5964248],
+            [-5.9304809, 54.5964242],
+            [-5.9304817, 54.5964316],
+            [-5.9305352, 54.5964292],
+            [-5.9305344, 54.5964204],
+            [-5.9305579, 54.5964197],
+            [-5.930573, 54.5965561],
+            [-5.9304131, 54.5965619],
+            [-5.9304126, 54.5965566],
+            [-5.9304286, 54.5965561],
+            [-5.9304259, 54.5965261],
+            [-5.9304168, 54.5965264],
+            [-5.9304159, 54.5965158],
+            [-5.9303422, 54.5965181],
+            [-5.9303432, 54.5965291],
+            [-5.930334, 54.5965293],
+            [-5.9303367, 54.5965593],
+            [-5.9303523, 54.5965589],
+            [-5.9303528, 54.5965638],
+            [-5.9302722, 54.5965671],
+            [-5.9302692, 54.5965397],
+            [-5.930177, 54.5965431],
+            [-5.9301739, 54.5965132],
+            [-5.9301583, 54.5965141],
+            [-5.9301513, 54.5964457],
+            [-5.9299276, 54.5964527],
+            [-5.9299329, 54.5965215],
+            [-5.929916, 54.5965221],
+            [-5.9299193, 54.5965516],
+            [-5.9298271, 54.5965549],
+            [-5.9298302, 54.5965834],
+            [-5.9296375, 54.5965908],
+            [-5.9296324, 54.5965409],
+            [-5.9297707, 54.5965361],
+            [-5.9297675, 54.5965073],
+            [-5.9297725, 54.596507],
+            [-5.9297588, 54.5963785],
+            [-5.9297534, 54.5963787],
+            [-5.9297502, 54.5963497],
+            [-5.9296134, 54.5963543],
+            [-5.9296018, 54.5962445],
+            [-5.929232, 54.5962579],
+            [-5.9292341, 54.5962807],
+            [-5.929203, 54.5962817],
+            [-5.9292091, 54.5963451],
+            [-5.9292401, 54.5963441],
+            [-5.9292503, 54.5964537],
+            [-5.9292614, 54.5965583],
+            [-5.9292322, 54.5965592],
+            [-5.9292382, 54.5966225],
+            [-5.9292682, 54.5966216],
+            [-5.9292724, 54.5966612],
+            [-5.929357, 54.5966581],
+            [-5.9293607, 54.5966919],
+            [-5.9293463, 54.5966925],
+            [-5.9293553, 54.596776],
+            [-5.9294991, 54.5967709],
+            [-5.9294974, 54.5967557],
+            [-5.9299178, 54.5967388],
+            [-5.9299206, 54.5967661],
+            [-5.9300722, 54.5967611],
+            [-5.9302236, 54.5967551],
+            [-5.9302209, 54.5967269],
+            [-5.9306349, 54.59671],
+            [-5.9306364, 54.5967258],
+            [-5.9307832, 54.5967205],
+            [-5.930774, 54.5966356],
+            [-5.9307586, 54.5966362],
+            [-5.9307376, 54.596441],
+            [-5.9307758, 54.5964396],
+            [-5.9307642, 54.5963315],
+            [-5.9307259, 54.5963329],
+            [-5.9307084, 54.5961703],
+            [-5.930719, 54.5961699],
+            [-5.930717, 54.5961476],
+            [-5.9307103, 54.5960887],
+            [-5.9305693, 54.5960937],
+            [-5.9301648, 54.5961092],
+            [-5.9301634, 54.5960948],
+            [-5.9299984, 54.5961008],
+            [-5.9298176, 54.5961079],
+            [-5.9298187, 54.5961225],
+            [-5.9294339, 54.596137],
+            [-5.9292892, 54.5961421],
+            [-5.929298, 54.5962255],
+            [-5.929309, 54.5962248],
+            [-5.9293114, 54.5962546]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/669781491",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:postcode": "BT1 5AW",
+        "addr:street": "Donegall Place",
+        "building": "yes",
+        "name": "DW Sports",
+        "phone": "+44 28 9023 4889",
+        "shop": "sports",
+        "website": "https://www.dwsports.com",
+        "id": "way/669781491"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9310987, 54.5978248],
+            [-5.9310893, 54.5976982],
+            [-5.930392, 54.5977233],
+            [-5.9304005, 54.5978373],
+            [-5.9307215, 54.5978311],
+            [-5.9310987, 54.5978248]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/669781492",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "44-46",
+        "addr:postcode": "BT1 5EE",
+        "addr:street": "Fountain Street",
+        "brand": "Waterstones",
+        "brand:wikidata": "Q151779",
+        "brand:wikipedia": "en:Waterstones",
+        "building": "yes",
+        "name": "Waterstones",
+        "opening_hours": "Mo-Sa 09:00-18:00; Th 09:00-21:00; Su 13:00-18:00",
+        "shop": "books",
+        "website": "https://www.waterstones.com/bookshops/belfast-fountain-str",
+        "id": "way/669781492"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9310893, 54.5976982],
+            [-5.9310987, 54.5978248],
+            [-5.9311017, 54.5978645],
+            [-5.9316579, 54.5978539],
+            [-5.93166, 54.5978428],
+            [-5.9316908, 54.5976766],
+            [-5.9310893, 54.5976982]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/689960671",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "51-53",
+        "addr:postcode": "BT1 5AD",
+        "addr:street": "Donegall Place",
+        "brand": "Carroll's Irish Gifts",
+        "building": "retail",
+        "name": "Carroll's Irish Gifts",
+        "opening_hours": "Mo-Sa 09:30-19:00; Th 09:30-20:00; Su 10:00-19:00",
+        "phone": "+44 28 90313350",
+        "shop": "gift",
+        "website": "https://www.carrollsirishgifts.com/store/51-53-donegal-place-belfast-bt1-5ad-northern-ireland",
+        "id": "way/689960671"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9310847, 54.5976262],
+            [-5.9310656, 54.5976269],
+            [-5.930387, 54.5976513],
+            [-5.930392, 54.5977233],
+            [-5.9310893, 54.5976982],
+            [-5.9310847, 54.5976262]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/689960676",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "17",
+        "addr:postcode": "BT1 5GB",
+        "addr:street": "Donegall Square North",
+        "amenity": "library",
+        "building": "yes",
+        "email": "info@linenhall.com",
+        "name": "The Linen Hall Library",
+        "opening_hours": "Mo-Fr 09:30-17:30",
+        "phone": "+44 28 9032 1707",
+        "start_date": "1788",
+        "website": "https://linenhall.com/",
+        "wikidata": "Q6553590",
+        "id": "way/689960676"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9314885, 54.5976117],
+            [-5.9317049, 54.5976039],
+            [-5.9317083, 54.5975855],
+            [-5.9317533, 54.5973451],
+            [-5.93168, 54.5973466],
+            [-5.9316073, 54.5973482],
+            [-5.9314692, 54.5973519],
+            [-5.9314807, 54.5975071],
+            [-5.9314885, 54.5976117]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/717288054",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "11-15",
+        "addr:postcode": "BT1 5GB",
+        "addr:street": "Donegall Square North",
+        "amenity": "bank",
+        "atm": "yes",
+        "brand": "First Trust Bank",
+        "brand:wikidata": "Q4349906",
+        "brand:wikipedia": "en:AIB (NI)",
+        "fixme": "Branding may have changed.",
+        "indoor": "room",
+        "level": "0",
+        "name": "First Trust Bank",
+        "operator": "First Trust Bank",
+        "website": "https://aibni.co.uk/",
+        "id": "way/717288054"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.9312829, 54.5973565],
+            [-5.9312933, 54.5975117],
+            [-5.9314807, 54.5975071],
+            [-5.9314692, 54.5973519],
+            [-5.9314551, 54.5973523],
+            [-5.9314385, 54.5973527],
+            [-5.9312829, 54.5973565]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/717288055",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "11/15",
+        "addr:postcode": "BT1 5GB",
+        "addr:street": "Donegall Square North",
+        "amenity": "bank",
+        "atm": "yes",
+        "brand": "Halifax",
+        "brand:wikidata": "Q3310164",
+        "brand:wikipedia": "en:Halifax (bank)",
+        "contact:website": "https://branches.halifax.co.uk/belfast/11/15-donegall-square-north",
+        "indoor": "room",
+        "level": "0",
+        "name": "Halifax",
+        "id": "way/717288055"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-5.931067, 54.5973617],
+            [-5.9310774, 54.5975169],
+            [-5.9312649, 54.5975122],
+            [-5.9312531, 54.5973572],
+            [-5.9310924, 54.5973611],
+            [-5.9310796, 54.5973614],
+            [-5.931067, 54.5973617]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/86453022",
+      "properties": {
+        "addr:housenumber": "2",
+        "addr:postcode": "BT1 6JA",
+        "addr:street": "Donegall Square West",
+        "amenity": "pub",
+        "food": "yes",
+        "name": "The Apartment",
+        "source:addr": "FHRS Open Data",
+        "wheelchair": "limited",
+        "id": "node/86453022"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.931764, 54.5969638]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/570523046",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:country": "GB",
+        "addr:housenumber": "3",
+        "addr:street": "Wellington Street",
+        "name": "Coppermoon",
+        "shop": "gift",
+        "id": "node/570523046"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9323714, 54.5964182]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/570523047",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:country": "GB",
+        "addr:housenumber": "2",
+        "addr:postcode": "BT1 6HT",
+        "addr:street": "Wellington Street",
+        "amenity": "restaurant",
+        "fhrs:id": "42134",
+        "name": "Made In Belfast",
+        "phone": "+44 28 9024 6712",
+        "website": "http://www.madeinbelfastni.com",
+        "wheelchair": "limited",
+        "wheelchair:description": "Very cramped space but if you make it known that you're a wheelchair user they will try and accommodate. No Disabled toilet facilities",
+        "id": "node/570523047"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9325318, 54.5964131]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/570523048",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:country": "GB",
+        "addr:housenumber": "4",
+        "addr:street": "Wellington Street",
+        "id": "node/570523048"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9322128, 54.5964242]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/571736598",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:country": "GB",
+        "addr:housenumber": "2",
+        "addr:street": "James Street South",
+        "frequency": "50",
+        "operator": "NIE Networks",
+        "phases": "3",
+        "power": "substation",
+        "substation": "distribution",
+        "voltage": "high-medium",
+        "voltage:primary": "high-medium",
+        "voltage:secondary": "low",
+        "id": "node/571736598"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.931912, 54.5954754]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/579036539",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:country": "GB",
+        "addr:housenumber": "7",
+        "addr:street": "James Street South",
+        "id": "node/579036539"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9310529, 54.5955067]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1301053447",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "21",
+        "addr:postcode": "BT1 6NB",
+        "addr:street": "Howard Street",
+        "amenity": "pub",
+        "name": "The Washington Bar",
+        "phone": "+4428 90323313",
+        "website": "http://www.washingtonbelfast.com",
+        "wheelchair": "limited",
+        "wheelchair:description": "No Access to upstairs, but the downstairs does have good floorspace and a wheelchair accessible toilet",
+        "id": "node/1301053447"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9324349, 54.595938]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1945583767",
+      "properties": {
+        "addr:housename": "Cleaver House",
+        "addr:housenumber": "56",
+        "addr:postcode": "BT1 5BB",
+        "addr:street": "Donegall Place",
+        "amenity": "fast_food",
+        "brand": "Burger King",
+        "brand:wikidata": "Q177054",
+        "brand:wikipedia": "en:Burger King",
+        "contact:website": "https://www.burgerking.co.uk/store-locator/store/restaurant_3999",
+        "cuisine": "burger",
+        "fhrs:id": "57345",
+        "name": "Burger King",
+        "source:addr": "FHRS Open Data",
+        "takeaway": "yes",
+        "wheelchair": "limited",
+        "id": "node/1945583767"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9298821, 54.5975261]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3021443720",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housename": "Robinson and Cleaver Building",
+        "addr:street": "Donegall Square North",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Robinson and Cleaver",
+        "id": "node/3021443720"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9298662, 54.5974566]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3021453802",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "1",
+        "addr:postcode": "BT1 6JH",
+        "addr:street": "Donegall Square West",
+        "amenity": "restaurant",
+        "brand": "Freshii",
+        "brand:wikidata": "Q5503051",
+        "brand:wikipedia": "en:Freshii",
+        "cuisine": "salad",
+        "name": "Freshii",
+        "wheelchair": "no",
+        "id": "node/3021453802"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9317546, 54.5970433]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3021453812",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "14",
+        "addr:postcode": "BT1 6GE",
+        "addr:street": "Wellington Place",
+        "name": "Consumer Advice Centre",
+        "operator": "Belfast City Council",
+        "phone": "+44 28 9032 8260",
+        "smoking": "no",
+        "website": "http://www.belfastcity.gov.uk/community/advice/consumeradvicecentre.aspx",
+        "id": "node/3021453812"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9323511, 54.5970219]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3021453813",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "18",
+        "addr:postcode": "BT1 5GB",
+        "addr:street": "Donegall Square North",
+        "brand": "Hotel Chocolat",
+        "brand:wikidata": "Q5911369",
+        "brand:wikipedia": "en:Hotel Chocolat",
+        "name": "Hotel Chocolat",
+        "shop": "confectionery",
+        "wheelchair": "yes",
+        "id": "node/3021453813"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9317021, 54.5973732]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3329988588",
+      "properties": {
+        "access": "yes",
+        "addr:city": "Belfast",
+        "addr:housename": "Belfast City Hall",
+        "addr:postcode": "BT1 5GS",
+        "addr:street": "Donegall Square",
+        "entrance": "main",
+        "wheelchair": "yes",
+        "id": "node/3329988588"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9300722, 54.5967611]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3589443646",
+      "properties": {
+        "addr:housename": "Lesley Buildings",
+        "addr:housenumber": "61",
+        "addr:street": "Fountain Street",
+        "entrance": "main",
+        "source": "survey",
+        "id": "node/3589443646"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9318956, 54.5975189]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930433919",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housename": "Rose Building",
+        "addr:housenumber": "16",
+        "addr:postcode": "BT1 6PA",
+        "addr:street": "Howard Street",
+        "alt_name": "Howard Street Post Office",
+        "amenity": "post_office",
+        "brand": "Post Office",
+        "brand:wikidata": "Q1783168",
+        "brand:wikipedia": "en:Post Office Ltd",
+        "fhrs:id": "658869",
+        "name": "Howard Street Post Office",
+        "opening_hours": "Mo-Fr 08:00-17:30",
+        "operator": "Post Office",
+        "operator:wikidata": "Q1783168",
+        "operator:wikipedia": "en:Post Office Ltd",
+        "ref:pol_id": "125718",
+        "source": "survey;pol_branch_list_2018-02",
+        "source:addr": "FHRS Open Data",
+        "website": "https://www.postoffice.co.uk/",
+        "id": "node/3930433919"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9320687, 54.5956782]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930433926",
+      "properties": {
+        "addr:street": "Donegall Square West",
+        "amenity": "cafe",
+        "brand": "Patisserie Valerie",
+        "brand:wikidata": "Q22101966",
+        "brand:wikipedia": "en:Patisserie Valerie",
+        "cuisine": "coffee_shop",
+        "floor_area": "426 sq m",
+        "name": "Patisserie Valerie",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "yes",
+        "id": "node/3930433926"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9316875, 54.5964851]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930463007",
+      "properties": {
+        "addr:housenumber": "10",
+        "addr:postcode": "BT1 6JH",
+        "addr:street": "Donegall Square West",
+        "amenity": "cafe",
+        "brand": "Caffè Nero",
+        "brand:wikidata": "Q675808",
+        "brand:wikipedia": "en:Caffè Nero",
+        "cuisine": "coffee_shop",
+        "fhrs:id": "454854",
+        "name": "Caffè Nero",
+        "source": "survey",
+        "source:addr": "FHRS Open Data",
+        "takeaway": "yes",
+        "wheelchair": "yes",
+        "id": "node/3930463007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9316917, 54.5965663]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930463008",
+      "properties": {
+        "addr:housenumber": "9",
+        "addr:postcode": "BT1 6JH",
+        "addr:street": "Donegall Square West",
+        "amenity": "fast_food",
+        "brand": "Greggs",
+        "brand:wikidata": "Q3403981",
+        "brand:wikipedia": "en:Greggs",
+        "building:level": "1",
+        "cuisine": "sandwich;bakery",
+        "fhrs:id": "136874",
+        "name": "Greggs",
+        "source": "survey",
+        "takeaway": "yes",
+        "id": "node/3930463008"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9317008, 54.5966265]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930463011",
+      "properties": {
+        "addr:housenumber": "4",
+        "addr:postcode": "BT1 6JH",
+        "addr:street": "Donegall Square West",
+        "amenity": "cafe",
+        "fhrs:id": "59093",
+        "name": "Clements",
+        "source": "survey",
+        "source:addr": "FHRS Open Data",
+        "wheelchair": "yes",
+        "id": "node/3930463011"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9317404, 54.5968832]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930506801",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:street": "Donegall Square North",
+        "name": "Space.NK",
+        "shop": "perfumery",
+        "source": "survey",
+        "id": "node/3930506801"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9304365, 54.5973942]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930506807",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "9",
+        "addr:postcode": "BT1 5GJ",
+        "addr:street": "Donegall Square North",
+        "information": "office",
+        "name": "Belfast Welcome Centre",
+        "operator": "Visit Belfast",
+        "phone": "+44 28 9024 6609",
+        "source": "survey",
+        "tourism": "information",
+        "website": "http://visit-belfast.com/",
+        "id": "node/3930506807"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9305623, 54.5973989]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3930506809",
+      "properties": {
+        "addr:housenumber": "8",
+        "addr:postcode": "BT1 5GJ",
+        "addr:street": "Donegall Square North",
+        "amenity": "atm",
+        "brand": "Danske Bank",
+        "brand:wikidata": "Q1636974",
+        "brand:wikipedia": "en:Danske Bank",
+        "currency:GBP": "yes",
+        "name": "Danske Bank",
+        "network": "Danske Bank",
+        "operator": "Danske Bank",
+        "operator:wikidata": "Q1636974",
+        "operator:wikipedia": "en:Danske Bank",
+        "source": "survey",
+        "id": "node/3930506809"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9305194, 54.5974693]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4385115336",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "58",
+        "addr:postcode": "BT1 6GF",
+        "addr:street": "Wellington Place",
+        "amenity": "restaurant",
+        "fhrs:id": "716343",
+        "name": "The Lantern",
+        "smoking": "outside",
+        "source": "FHRS Open Data",
+        "id": "node/4385115336"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9342644, 54.5969665]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4788824852",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housename": "Capital House",
+        "addr:street": "Upper Queen Street",
+        "id": "node/4788824852"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9335651, 54.5968754]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4788824853",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housename": "Lesley House",
+        "addr:street": "Wellington Place",
+        "id": "node/4788824853"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9335039, 54.5973129]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5646075037",
+      "properties": {
+        "addr:housenumber": "11",
+        "addr:street": "Wellington Place",
+        "amenity": "restaurant",
+        "name": "Solo Restaurant & Bar",
+        "id": "node/5646075037"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9326617, 54.5973]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5716117123",
+      "properties": {
+        "addr:housenumber": "7",
+        "addr:street": "James Street South",
+        "amenity": "restaurant",
+        "cuisine": "irish",
+        "internet_access": "wlan",
+        "name": "St James street south bar + grill",
+        "id": "node/5716117123"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.931088, 54.5955206]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5926592987",
+      "properties": {
+        "addr:city": "Belfast",
+        "addr:housenumber": "42",
+        "addr:postcode": "BT1 6PG",
+        "addr:street": "Howard Street",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Medi-care",
+        "id": "node/5926592987"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9333182, 54.5957215]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6815757288",
+      "properties": {
+        "addr:street": "Howard Street",
+        "amenity": "restaurant",
+        "name": "Flame",
+        "id": "node/6815757288"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.9334585, 54.5957029]
+      }
+    }
+  ]
+}
