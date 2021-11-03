@@ -11,7 +11,7 @@ const {
 const seed = async (data) => {
 	const { assessmentAreas, comments, projects, publicApis, receptors } = data;
 
-	await db.query(`CREATE EXTENSION postgis;`);
+	await db.query(`CREATE EXTENSION IF NOT EXISTS postgis;`);
 	await db.query(
 		'DROP TABLE IF EXISTS assessment_areas, comments, projects, public_apis, receptors CASCADE;'
 	);

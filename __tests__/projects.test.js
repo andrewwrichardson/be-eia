@@ -25,3 +25,18 @@ describe('GET /api/projects', () => {
 			});
 	});
 });
+
+describe('POST /api/projects', () => {
+	test('201: created new project', () => {
+		return request(app)
+			.post('/api/projects')
+			.send({ project: { project_name: 'Project Three' } })
+			.expect(201)
+			.then((result) => {
+				expect(result.body.project).toEqual({
+					project_id: 3,
+					project_name: 'Project Three',
+				});
+			});
+	});
+});
