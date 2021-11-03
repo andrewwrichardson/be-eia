@@ -7,7 +7,7 @@ const assessmentAreasRouter = require('./assessment-areas.router');
 const apiRouter = express.Router();
 
 apiRouter.use('/projects', projectsRouter);
-apiRouter.use('/assessment-areas', assessmentAreasRouter);
+apiRouter.use('/assessment_areas', assessmentAreasRouter);
 apiRouter.route('/').get(getApi);
 
 module.exports = apiRouter;
