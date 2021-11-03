@@ -1,35 +1,37 @@
 {
-	"name": "be-eia",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "psql -f ./db/setup.sql && jest --verbose --runInBand",
-		"setup-dbs": "psql -f ./db/setup.sql",
-		"seed": "node ./db/seeds/run-seed.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/andrewwrichardson/be-eia.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/andrewwrichardson/be-eia/issues"
-	},
-	"homepage": "https://github.com/andrewwrichardson/be-eia#readme",
-	"devDependencies": {
-		"jest": "^27.2.0",
-		"nodemon": "^2.0.12",
-		"supertest": "^6.1.6"
-	},
-	"dependencies": {
-		"cors": "^2.8.5",
-		"dotenv": "^10.0.0",
-		"express": "^4.17.1",
-		"osmtogeojson": "^3.0.0-beta.4",
-		"pg": "^8.7.1",
-		"pg-format": "^1.0.4"
-	}
+  "name": "be-eia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node listen.js",
+    "test": "psql -f ./db/setup.sql && jest --verbose --runInBand",
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "seed": "node ./db/seeds/run-seed.js",
+    "seed:prod": "NODE_ENV=production DATABASE_URL=$(heroku config:get DATABASE_URL) npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewwrichardson/be-eia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewwrichardson/be-eia/issues"
+  },
+  "homepage": "https://github.com/andrewwrichardson/be-eia#readme",
+  "devDependencies": {
+    "jest": "^27.2.0",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "osmtogeojson": "^3.0.0-beta.4",
+    "pg": "^8.7.1",
+    "pg-format": "^1.0.4"
+  }
 }
