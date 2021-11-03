@@ -61,15 +61,3 @@ describe('POST /api/assessment_areas', () => {
 			});
 	});
 });
-
-// describe('PATCH /api/assessment-areas', () => {
-// 	test('201: created new project', () => {
-// 		return request(app)
-// 			.patch('/api/assessment-areas/1')
-// 			.send({ project: { geom: 'Project Three' } })
-// 			.expect(201)
-// 			.then((result) => {
-// 				expect(result.body.project).toEqual();
-// 			});
-// 	});
-// });
