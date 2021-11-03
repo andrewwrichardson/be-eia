@@ -40,3 +40,18 @@ describe('POST /api/projects', () => {
 			});
 	});
 });
+
+describe('PATCH /api/projects', () => {
+	test('201: created new project', () => {
+		return request(app)
+			.patch('/api/projects/2')
+			.send({ project: { project_name: 'New Project Name' } })
+			.expect(201)
+			.then((result) => {
+				expect(result.body.project).toEqual({
+					project_id: 2,
+					project_name: 'New Project Name',
+				});
+			});
+	});
+});

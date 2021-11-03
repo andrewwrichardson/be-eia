@@ -24,3 +24,17 @@ exports.addProject = async (newProject) => {
 
 	return result.rows[0];
 };
+
+exports.updateProject = async (project_id, newProject) => {
+	var queryStr = `UPDATE projects SET project_name = $1
+    WHERE project_id = $2 RETURNING *;`;
+	var queryVals = [newProject.project_name, project_id];
+
+	const result = await db.query(queryStr, queryVals);
+
+	if (result.rows.length === 0) {
+		return Promise.reject({ status: 404, msg: 'Not Found' });
+	}
+
+	return result.rows[0];
+};
