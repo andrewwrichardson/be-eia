@@ -19,7 +19,7 @@ exports.jsToPgFormatAssessmentAreas = (data) => {
 
 exports.jsToPgFormatPublicApis = (data) => {
   return data.map((item) => {
-    return [item.url, item.source, item.category];
+    return [encodeURI(item.url), item.source, item.category];
   });
 };
 
