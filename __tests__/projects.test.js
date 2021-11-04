@@ -47,7 +47,7 @@ describe('POST /api/projects', () => {
 });
 
 describe('PATCH /api/projects', () => {
-	test('201: created new project', () => {
+	test('201: update project - both project_name and image_url', () => {
 		return request(app)
 			.patch('/api/projects/2')
 			.send({
@@ -61,6 +61,40 @@ describe('PATCH /api/projects', () => {
 				expect(result.body.project).toEqual({
 					project_id: 2,
 					project_name: 'New Project Name',
+					image_url: 'https://www.stevensegallery.com/140/100',
+				});
+			});
+	});
+	test('201: update project - project_name', () => {
+		return request(app)
+			.patch('/api/projects/2')
+			.send({
+				project: {
+					project_name: 'New Project Name',
+				},
+			})
+			.expect(201)
+			.then((result) => {
+				expect(result.body.project).toEqual({
+					project_id: 2,
+					project_name: 'New Project Name',
+					image_url: 'https://www.stevensegallery.com/140/100',
+				});
+			});
+	});
+	test('201: update project - image_url', () => {
+		return request(app)
+			.patch('/api/projects/2')
+			.send({
+				project: {
+					image_url: 'https://www.stevensegallery.com/140/100',
+				},
+			})
+			.expect(201)
+			.then((result) => {
+				expect(result.body.project).toEqual({
+					project_id: 2,
+					project_name: 'Project Two',
 					image_url: 'https://www.stevensegallery.com/140/100',
 				});
 			});
