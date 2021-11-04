@@ -14,7 +14,17 @@ describe('GET /api/receptors:project_id', () => {
 			.get('/api/receptors/1')
 			.expect(200)
 			.then((result) => {
-				console.log('receptors test ----> \n', result.body);
+				result.body.receptors.forEach((receptor) => {
+					expect(receptor).toEqual({
+						receptor_id: expect.any(Number),
+						project_id: expect.any(Number),
+						api_id: expect.any(Number),
+						osm_id: expect.any(String),
+						type: expect.any(String),
+						properties: expect.any(Object),
+						geometry: expect.any(Object),
+					});
+				});
 			});
 	});
 });

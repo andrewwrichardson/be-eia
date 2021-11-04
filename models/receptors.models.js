@@ -10,5 +10,14 @@ exports.fetchReceptors = async (project_id) => {
 		return Promise.reject({ status: 404, msg: 'Not Found' });
 	}
 
-	return result.rows;
+	const updatedReceptors = [];
+	result.rows.forEach((receptor) => {
+		let updatedReceptor = { ...receptor };
+		updatedReceptor.properties = JSON.parse(updatedReceptor.properties);
+		delete updatedReceptor.json_build_object;
+		updatedReceptor.geometry = { ...receptor.json_build_object };
+		updatedReceptors.push(updatedReceptor);
+	});
+
+	return updatedReceptors;
 };
