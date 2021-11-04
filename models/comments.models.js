@@ -16,3 +16,26 @@ exports.addComment = async (newComment) => {
 
 	return result.rows[0];
 };
+
+exports.editComment = async (comment_id, updatedComment) => {
+	if (
+		updatedComment.impact !== undefined &&
+		updatedComment.comment !== undefined
+	) {
+		queryStr = `UPDATE comments SET impact = $1, comment = $2 WHERE comment_id = $3 RETURNING *;`;
+		queryVals = [updatedComment.impact, updatedComment.comment, comment_id];
+	} else if (updatedComment.impact !== undefined) {
+		queryStr = `UPDATE comments SET impact = $1 WHERE comment_id = $2 RETURNING *;`;
+		queryVals = [updatedComment.impact, comment_id];
+	} else if (updatedComment.comment !== undefined) {
+		queryStr = `UPDATE comments SET comment = $1 WHERE comment_id = $2 RETURNING *;`;
+		queryVals = [updatedComment.comment, comment_id];
+	}
+	const result = await db.query(queryStr, queryVals);
+
+	if (result.rows.length === 0) {
+		return Promise.reject({ status: 404, msg: 'Not Found' });
+	}
+
+	return result.rows[0];
+};
