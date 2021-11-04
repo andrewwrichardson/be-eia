@@ -1,8 +1,8 @@
 const db = require('../db/connection');
 
 exports.fetchReceptors = async (project_id) => {
-	let queryStr = `SELECT * FROM receptors WHERE project_id = $1;`;
-	let queryVals = [project_id];
+	let queryStr = `SELECT receptor_id, project_id, api_id, osm_id, type, properties, json_build_object('type', 'FeatureCollection', 'features', json_agg(json_build_object('type','Feature','properties',json_build_object(),'geometry',ST_AsGeoJSON(receptors.geom)::json))) FROM receptors WHERE project_id = $1 GROUP BY receptor_id;`;
+	let queryVals = [1];
 
 	const result = await db.query(queryStr, queryVals);
 
@@ -10,5 +10,5 @@ exports.fetchReceptors = async (project_id) => {
 		return Promise.reject({ status: 404, msg: 'Not Found' });
 	}
 
-	console.log('receptors model ----> \n', result.rows);
+	return result.rows;
 };
