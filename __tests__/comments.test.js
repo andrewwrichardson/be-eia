@@ -8,6 +8,17 @@ const request = require('supertest');
 beforeEach(() => seed(testData));
 afterAll(() => db.end());
 
+describe('GET /api/comments/receptors-comments/:project_id', () => {
+	test('200: comments', () => {
+		return request(app)
+			.get('/api/comments/receptors-comments/1')
+			.expect(200)
+			.then((result) => {
+				console.log(result.body);
+			});
+	});
+});
+
 describe('POST /api/comments', () => {
 	test('201: created ', () => {
 		return request(app)

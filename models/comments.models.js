@@ -1,5 +1,20 @@
 const db = require('../db/connection');
 
+exports.fetchComments = async (project_id) => {
+	let queryStr = `SELECT * FROM receptors
+    INNER JOIN comments ON receptors.receptor_id = comments.comment_id
+    WHERE project_id = $1;`;
+	let queryVals = [project_id];
+
+	const result = await db.query(queryStr, queryVals);
+
+	if (result.rows.length === 0) {
+		return Promise.reject({ status: 404, msg: 'Not Found' });
+	}
+
+	return result.rows;
+};
+
 exports.addComment = async (newComment) => {
 	let queryStr = `INSERT INTO comments (receptor_id, impact, comment) VALUES ($1, $2, $3) RETURNING *;`;
 	let queryVals = [
