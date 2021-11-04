@@ -12,9 +12,9 @@ exports.fetchProjects = async () => {
 };
 
 exports.addProject = async (newProject) => {
-	var queryStr = `INSERT INTO projects (project_name) 
-    VALUES ($1) RETURNING *;`;
-	var queryVals = [newProject.project_name];
+	var queryStr = `INSERT INTO projects (project_name, image_url) 
+    VALUES ($1, $2) RETURNING *;`;
+	var queryVals = [newProject.project_name, newProject.image_url];
 
 	const result = await db.query(queryStr, queryVals);
 
@@ -26,9 +26,22 @@ exports.addProject = async (newProject) => {
 };
 
 exports.updateProject = async (project_id, newProject) => {
-	var queryStr = `UPDATE projects SET project_name = $1
+	if (
+		newProject.project_name !== undefined &&
+		newProject.image_url !== undefined
+	) {
+		var queryStr = `UPDATE projects SET project_name = $1, image_url = $2
+    WHERE project_id = $3 RETURNING *;`;
+		var queryVals = [newProject.project_name, newProject.image_url, project_id];
+	} else if (newProject.project_name !== undefined) {
+		var queryStr = `UPDATE projects SET project_name = $1
     WHERE project_id = $2 RETURNING *;`;
-	var queryVals = [newProject.project_name, project_id];
+		var queryVals = [newProject.project_name, project_id];
+	} else if (newProject.image_url !== undefined) {
+		var queryStr = `UPDATE projects SET image_url = $1
+    WHERE project_id = $2 RETURNING *;`;
+		var queryVals = [newProject.image_url, project_id];
+	}
 
 	const result = await db.query(queryStr, queryVals);
 

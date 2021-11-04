@@ -14,7 +14,7 @@ describe('GET /api/receptors:project_id', () => {
 			.get('/api/receptors/1')
 			.expect(200)
 			.then((result) => {
-				// console.log('receptors test ----> \n', result.body);
+				console.log('receptors test ----> \n', result.body);
 			});
 	});
 });

@@ -18,13 +18,14 @@ const seed = async (data) => {
 	await db.query(`
         CREATE TABLE projects (
         project_id SERIAL PRIMARY KEY NOT NULL,
-        project_name VARCHAR(200) NOT NULL
+        project_name VARCHAR(200) NOT NULL,
+		image_url TEXT
     );
     `);
 
 	const formattedProjects = jsToPgFormatProjects(projects);
 	let queryString = format(
-		`INSERT INTO projects (project_name) VALUES %L RETURNING *;`,
+		`INSERT INTO projects (project_name, image_url) VALUES %L RETURNING *;`,
 		formattedProjects
 	);
 	await db.query(queryString);
