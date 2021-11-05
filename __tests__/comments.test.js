@@ -23,6 +23,9 @@ describe('GET /api/comments/receptors-comments/:project_id', () => {
                         type: expect.any(String),
                         properties: expect.any(Object),
                         geometry: expect.any(Object),
+                        comment_id: expect.any(Number),
+                        impact: expect.any(String),
+                        comment: expect.any(String),
                     });
                 });
             });

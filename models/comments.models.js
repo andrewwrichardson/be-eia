@@ -1,9 +1,9 @@
 const db = require('../db/connection');
 
 exports.fetchComments = async (project_id) => {
-    let queryStr = `SELECT receptors.receptor_id, receptors.project_id, receptors.api_id, receptors.osm_id, receptors.type, receptors.properties, json_build_object('type', 'FeatureCollection', 'features', json_agg(json_build_object('type','Feature','properties',json_build_object(),'geometry',ST_AsGeoJSON(receptors.geom)::json))) FROM receptors
-    INNER JOIN comments ON receptors.receptor_id = comments.comment_id
-    WHERE project_id = $1 GROUP BY receptors.receptor_id;`;
+    let queryStr = `SELECT * FROM (SELECT receptors.receptor_id, receptors.project_id, receptors.api_id, receptors.osm_id, receptors.type, receptors.properties, json_build_object('type', 'FeatureCollection', 'features', json_agg(json_build_object('type','Feature','properties',json_build_object(),'geometry',ST_AsGeoJSON(receptors.geom)::json))) FROM receptors GROUP BY receptors.receptor_id) as recepts
+    JOIN comments ON recepts.receptor_id = comments.comment_id
+    WHERE project_id = $1;`;
     let queryVals = [project_id];
 
     const result = await db.query(queryStr, queryVals);
