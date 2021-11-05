@@ -138,7 +138,7 @@
             }
         }
     },
-    "GET /api/receptors:project_id": {
+    "GET /api/receptors/:project_id": {
         "description": "serves an object containing receptors for a specific project",
         "queries": [],
         "exampleResponse": {
