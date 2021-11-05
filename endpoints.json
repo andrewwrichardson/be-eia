@@ -63,6 +63,11 @@
             }
         }
     },
+    "DELETE /api/projects/:project_id": {
+        "description": "delete project",
+        "requestBody": {},
+        "exampleResponse": {}
+    },
     "GET /api/assessment_areas/:project_id": {
         "description": "serves an object containing the assessment area for a specific project",
         "queries": [],
