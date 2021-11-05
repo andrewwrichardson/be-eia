@@ -20,6 +20,17 @@
             ]
         }
     },
+    "GET /api/projects/:project_id": {
+        "description": "serves an object with project information",
+        "queries": [],
+        "exampleResponse": {
+            "project": {
+                "project_id": 1,
+                "project_name": "Project One",
+                "image_url": "https://www.stevensegallery.com/140/100"
+            }
+        }
+    },
     "POST /api/projects": {
         "description": "adds new project",
         "requestBody": {
