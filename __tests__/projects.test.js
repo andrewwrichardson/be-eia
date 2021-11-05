@@ -46,7 +46,7 @@ describe('POST /api/projects', () => {
 	});
 });
 
-describe('PATCH /api/projects', () => {
+describe('PATCH /api/projects/:project_id', () => {
 	test('201: update project - both project_name and image_url', () => {
 		return request(app)
 			.patch('/api/projects/2')
