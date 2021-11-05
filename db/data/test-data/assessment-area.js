@@ -24,6 +24,30 @@ module.exports = [
 		},
 	},
 	{
+		project_id: 1,
+		geometry: {
+			type: 'FeatureCollection',
+			features: [
+				{
+					type: 'Feature',
+					properties: {},
+					geometry: {
+						type: 'Polygon',
+						coordinates: [
+							[
+								[26.910678148269653, 46.540399297719794],
+								[26.91220164299011, 46.540399297719794],
+								[26.91220164299011, 46.54099705451672],
+								[26.910678148269653, 46.54099705451672],
+								[26.910678148269653, 46.540399297719794],
+							],
+						],
+					},
+				},
+			],
+		},
+	},
+	{
 		project_id: 2,
 		geometry: {
 			type: 'FeatureCollection',
