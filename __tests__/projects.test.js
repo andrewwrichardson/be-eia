@@ -117,3 +117,9 @@ describe('PATCH /api/projects/:project_id', () => {
             });
     });
 });
+
+describe('DELETE /api/projects/:project_id', () => {
+    test('204: No Content', () => {
+        return request(app).delete('/api/projects/2').expect(204);
+    });
+});

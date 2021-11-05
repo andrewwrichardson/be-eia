@@ -2,6 +2,7 @@ const {
     fetchProjects,
     addProject,
     updateProject,
+    removeProject,
 } = require('../models/projects.models');
 
 exports.getProjects = (req, res, next) => {
@@ -37,6 +38,17 @@ exports.patchProject = (req, res, next) => {
     updateProject(project_id, project)
         .then((project) => {
             res.status(201).send({ project });
+        })
+        .catch((err) => {
+            next(err);
+        });
+};
+
+exports.deleteProject = (req, res, next) => {
+    const { project_id } = req.params;
+    removeProject(project_id)
+        .then(() => {
+            res.sendStatus(204);
         })
         .catch((err) => {
             next(err);

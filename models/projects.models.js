@@ -64,3 +64,19 @@ exports.updateProject = async (project_id, newProject) => {
 
     return result.rows[0];
 };
+
+exports.removeProject = async (project_id) => {
+    if (!isNaN(project_id) !== undefined && project_id !== undefined) {
+        var queryStr = `DELETE FROM projects WHERE project_id = $1 RETURNING *;`;
+        var queryVals = [project_id];
+    } else {
+        return Promise.reject({ status: 404, msg: 'Not Found' });
+    }
+    const result = await db.query(queryStr, queryVals);
+
+    if (result.rows.length === 0) {
+        return Promise.reject({ status: 404, msg: 'Not Found' });
+    }
+
+    return result.rows[0];
+};
