@@ -14,7 +14,6 @@ describe('GET /api/comments/receptors-comments/:project_id', () => {
             .get('/api/comments/receptors-comments/1')
             .expect(200)
             .then((result) => {
-                console.log(result.body);
                 result.body.comments.forEach((comm) => {
                     expect(comm).toEqual({
                         receptor_id: expect.any(Number),
