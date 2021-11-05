@@ -1,0 +1,86 @@
+[
+  {
+    "project_id": 1,
+    "api_id": 1,
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "id": "node/6815757288",
+          "properties": {
+            "addr:street": "inside boundary",
+            "amenity": "factory",
+            "name": "mckinistry",
+            "id": "node/6815757288"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-5.9344303607940665, 54.59644014432653]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "way/60611449",
+          "properties": {
+            "name": "Lagan Navigation (abandoned)",
+            "notes": "non-navigable",
+            "source": "survey",
+            "waterway": "canal",
+            "id": "way/60611449"
+          },
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [-6.2414445, 54.5104985],
+              [-6.2427297, 54.5110303]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "Inside Polygon",
+          "properties": {
+            "name": "Inside Belfast Polygon",
+            "notes": "Inside",
+            "source": "survey",
+            "waterway": "canal",
+            "id": "way/60611449"
+          },
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [-5.9349775314331055, 54.596548916412665],
+              [-5.933808088302612, 54.59654270087271]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "addr:city": "Belfast",
+            "addr:country": "GB",
+            "addr:housename": "Wellington Buildings",
+            "addr:street": "Wellington Street",
+            "building": "yes",
+            "id": "way/45002074"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [-5.9326629, 54.5965297],
+                [-5.932649, 54.5964076],
+                [-5.9325301, 54.5964121],
+                [-5.932404006121593, 54.59641694670862],
+                [-5.932409224501739, 54.59653938645634],
+                [-5.9326629, 54.5965297]
+              ]
+            ]
+          },
+          "id": "way/45002074"
+        }
+      ]
+    }
+  }
+]
