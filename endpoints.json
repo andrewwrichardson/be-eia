@@ -125,35 +125,6 @@
                     ]
                 }
             }
-        },
-        "exampleResponse": {
-            "assessment_area": {
-                "project_id": 1,
-                "geometry": {
-                    "type": "FeatureCollection",
-                    "features": [
-                        {
-                            "type": "Feature",
-                            "properties": {},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [
-                                    [
-                                        [
-                                            26.910678148269653,
-                                            46.540399297719794
-                                        ],
-                                        [26.91220164299011, 46.540399297719794],
-                                        [26.91220164299011, 46.54099705451672],
-                                        [26.910678148269653, 46.54099705451672],
-                                        [26.910678148269653, 46.540399297719794]
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
         }
     },
     "GET /api/receptors/:project_id": {
@@ -344,6 +315,41 @@
                     }
                 }
             ]
+        }
+    },
+    "POST /api/comments": {
+        "description": "adds new project",
+        "requestBody": {
+            "newComment": {
+                "receptor_id": 1,
+                "impact": "Minor",
+                "comment": "yes no yes no"
+            }
+        },
+        "exampleResponse": {
+            "comment": {
+                "comment_id": 3,
+                "receptor_id": 1,
+                "impact": "Minor",
+                "comment": "yes no yes no"
+            }
+        }
+    },
+    "PATCH /api/comments/:comment_id": {
+        "description": "adds new project",
+        "requestBody": {
+            "updatedComment": {
+                "impact": "Major",
+                "comment": "yes no yes no"
+            }
+        },
+        "exampleResponse": {
+            "comment": {
+                "comment_id": 1,
+                "receptor_id": 1,
+                "impact": "Major",
+                "comment": "yes no yes no"
+            }
         }
     }
 }
