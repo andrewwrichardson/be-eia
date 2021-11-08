@@ -16,14 +16,13 @@
           },
           "geometry": {
             "type": "Point",
-            "coordinates": [-5.9344303607940665, 54.59644014432653]
+            "coordinates": [-6.093013286590576, 54.50821437818363]
           }
         },
         {
           "type": "Feature",
-          "id": "way/60611449",
           "properties": {
-            "name": "Lagan Navigation (abandoned)",
+            "name": "Should be trimmed",
             "notes": "non-navigable",
             "source": "survey",
             "waterway": "canal",
@@ -32,33 +31,21 @@
           "geometry": {
             "type": "LineString",
             "coordinates": [
-              [-6.2414445, 54.5104985],
-              [-6.2427297, 54.5110303]
+              [-6.080035355629933, 54.50368238398181],
+              [-6.08092188835144, 54.50348628262655],
+              [-6.08208026926766, 54.503062012012144]
             ]
-          }
-        },
-        {
-          "type": "Feature",
-          "id": "Inside Polygon",
-          "properties": {
-            "name": "Inside Belfast Polygon",
-            "notes": "Inside",
-            "source": "survey",
-            "waterway": "canal",
-            "id": "way/60611449"
           },
-          "geometry": {
-            "type": "LineString",
-            "coordinates": [
-              [-5.9349775314331055, 54.596548916412665],
-              [-5.933808088302612, 54.59654270087271]
-            ]
-          }
+          "bbox": [
+            -6.08208026926766, 54.503062012012144, -6.080035355629933,
+            54.50368238398181
+          ],
+          "id": "way/60611449"
         },
         {
           "type": "Feature",
           "properties": {
-            "addr:city": "Belfast",
+            "addr:city": "Inside Boundary",
             "addr:country": "GB",
             "addr:housename": "Wellington Buildings",
             "addr:street": "Wellington Street",
@@ -69,12 +56,11 @@
             "type": "Polygon",
             "coordinates": [
               [
-                [-5.9326629, 54.5965297],
-                [-5.932649, 54.5964076],
-                [-5.9325301, 54.5964121],
-                [-5.932404006121593, 54.59641694670862],
-                [-5.932409224501739, 54.59653938645634],
-                [-5.9326629, 54.5965297]
+                [-6.080017983913422, 54.503296275257235],
+                [-6.079969704151154, 54.50319971379654],
+                [-6.079893750585646, 54.503215997976184],
+                [-6.079945891356201, 54.5033078021908],
+                [-6.080017983913422, 54.503296275257235]
               ]
             ]
           },

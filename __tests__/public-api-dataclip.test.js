@@ -1,31 +1,57 @@
-const app = require("../app");
 const db = require("../db/connection");
 const { seed } = require("../db/seeds/seed");
 const testData = require("../db/data/test-data/index");
-const geojson = require("../db/data/test-data/dataClip-osm-input.json");
+const geojson = require("../db/data/test-data/osm-input.json");
 const dataClipOutput = require("../db/data/test-data/public-api-dataclip-output.json");
-const geojsonTestCopy = require("../db/data/test-data/dataClip-osm-input-test-copy.json");
+const geojsonNotMutated = require("../db/data/test-data/osm-input-not-mutated.json");
 const { dataclip, getBbox } = require("../db/utils/public-api-dataclip.util");
+
 beforeEach(() => seed(testData));
 afterAll(() => db.end());
 
-describe("populate receptor from public API", () => {
-  test("should not mutate inputs", async () => {
+describe("DataClip util function", () => {
+  test.only("should not mutate inputs", async () => {
     const project_id = 1;
     const api_id = 1;
-    const result = await dataclip(geojson, project_id, api_id);
-    console.log(result, "result");
-    expect(geojson).toEqual(geojsonTestCopy);
+    const assessmentArea = await db.query(
+      `SELECT json_build_object(
+                'type', 'FeatureCollection',
+                'features', json_agg(json_build_object('type','Feature','properties',json_build_object(),'geometry',ST_AsGeoJSON(assessment_areas.geom)::json)))
+                 FROM assessment_areas
+                 WHERE project_id = $1;`,
+      [project_id]
+    );
+
+    const assessmentAreaFC = assessmentArea.rows[0].json_build_object;
+
+    const result = await dataclip(
+      geojson,
+      project_id,
+      api_id,
+      assessmentAreaFC
+    );
+    expect(geojson).toEqual(geojsonNotMutated);
     expect(project_id).toEqual(1);
     expect(api_id).toEqual(1);
   });
   test("Output should be in a prescribed format", async () => {
-    const result = await dataclip(geojson, 1, 1);
+    const project_id = 1;
+    const assessmentArea = await db.query(
+      `SELECT json_build_object(
+                'type', 'FeatureCollection',
+                'features', json_agg(json_build_object('type','Feature','properties',json_build_object(),'geometry',ST_AsGeoJSON(assessment_areas.geom)::json)))
+                 FROM assessment_areas
+                 WHERE project_id = $1;`,
+      [project_id]
+    );
+
+    const assessmentAreaFC = assessmentArea.rows[0].json_build_object;
+    const result = await dataclip(geojson, 1, 1, assessmentAreaFC);
     expect(result).toEqual(dataClipOutput);
   });
 });
 
-describe.only("getBbox", () => {
+describe("getBbox", () => {
   test("Bbox is provided in correct format", async () => {
     let project_id = 1;
     const assessmentArea = await db.query(
@@ -37,7 +63,7 @@ describe.only("getBbox", () => {
       [project_id]
     );
     const result = getBbox(assessmentArea.rows[0].json_build_object);
-    console.log(result, "result");
+    console.log(result);
     const Bbox = {
       minLat: 54.502103258,
       maxLat: 54.509239038,

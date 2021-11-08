@@ -4,10 +4,11 @@ const db = require("../connection");
 const format = require("pg-format");
 fs = require("fs");
 
-exports.dataclip = async (geojson, project_id, assessmentArea) => {
+exports.dataclip = async (geojson, project_id, api_id, assessmentArea) => {
   let assessmentAreaPolygon = assessmentArea;
 
   //// format points
+
   const points = [];
   geojson.features.forEach((feature) => {
     if (feature.geometry.type === "Point") {
@@ -54,7 +55,6 @@ exports.dataclip = async (geojson, project_id, assessmentArea) => {
 
       if (overlapping == true) {
         allFeatures.features.push(splitLines);
-        console.log(overlapping, splitLines, "<-----");
       }
     });
   });
@@ -89,25 +89,31 @@ exports.dataclip = async (geojson, project_id, assessmentArea) => {
     },
   ];
 
-  // console.log(receptors, "receptors");
-  // fs.writeFile(`receptors.txt`, JSON.stringify(receptors), function (err) {
+  // fs.writeFile(`receptorsV1.json`, JSON.stringify(receptors), function (err) {
   //   if (err) return console.log(err);
   // });
-  console.log(receptors, "receptors");
+
   return receptors;
 };
 
-exports.insertReceptorsData = async (receptors) => {
+exports.insertReceptorsData = async (receptors, project_id) => {
+  await db.query(`DELETE FROM receptors WHERE project_id = $1;`, [project_id]);
+
   const formattedReceptors = jsToPgFormatReceptors(receptors);
+  console.log(formattedReceptors, "formatted receptors");
   queryString = format(
-    `INSERT INTO receptors (project_id, api_id, geom,osm_id, type, properties) VALUES %L RETURNING *;`,
+    `INSERT INTO receptors (project_id, api_id, geom, osm_id, type, properties) VALUES %L RETURNING *;`,
     formattedReceptors
   );
 
-  await db.query(queryString);
-
+  const result = await db.query(queryString);
+  // if (result.rows.length > 0) {
+  //   return { successful: true };
+  // } else {
+  //   return Promise.reject({ status: 404, msg: "Not Found" });
+  // }
   const log = await db.query(`select* from receptors;`);
-  console.log(log);
+  console.log("<------>", log);
 };
 
 exports.getBbox = (assessmentArea) => {

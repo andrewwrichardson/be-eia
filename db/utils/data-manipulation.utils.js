@@ -2,7 +2,7 @@ const { geojsonCollectionToPostgis } = require(`./geojson.utils`);
 
 exports.jsToPgFormatProjects = (data) => {
   return data.map((item) => {
-    return [item.project_name];
+    return [item.project_name, item.image_url];
   });
 };
 
