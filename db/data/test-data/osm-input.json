@@ -5,7 +5,7 @@
       "type": "Feature",
       "id": "way/45002074",
       "properties": {
-        "addr:city": "Inside Boundary",
+        "addr:city": "Belfast",
         "addr:country": "GB",
         "addr:housename": "Wellington Buildings",
         "addr:street": "Wellington Street",
@@ -16,11 +16,16 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [-6.079832911491394, 54.50332586662694],
-            [-6.080017983913422, 54.503296275257235],
-            [-6.079969704151154, 54.50319971379654],
-            [-6.0797953605651855, 54.50323709245355],
-            [-6.079832911491394, 54.50332586662694]
+            [-5.9320938, 54.5964287],
+            [-5.9321077, 54.5965509],
+            [-5.9326629, 54.5965297],
+            [-5.932649, 54.5964076],
+            [-5.9325301, 54.5964121],
+            [-5.9323714, 54.5964182],
+            [-5.9322525, 54.5964227],
+            [-5.9322128, 54.5964242],
+            [-5.9321732, 54.5964257],
+            [-5.9320938, 54.5964287]
           ]
         ]
       }
@@ -29,7 +34,7 @@
       "type": "Feature",
       "id": "way/60611449",
       "properties": {
-        "name": "Should be trimmed",
+        "name": "Lagan Navigation (abandoned)",
         "notes": "non-navigable",
         "source": "survey",
         "waterway": "canal",
@@ -38,32 +43,23 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-6.079344749450684, 54.503835146315815],
-          [-6.08092188835144, 54.50348628262655],
-          [-6.083014011383057, 54.50272001799666]
+          [-6.2414445, 54.5104985],
+          [-6.2427297, 54.5110303]
         ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": { "location": "Outside boundary" },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-6.078228950500488, 54.50440204345861]
       }
     },
     {
       "type": "Feature",
       "id": "node/6815757288",
       "properties": {
-        "addr:street": "inside boundary",
-        "amenity": "factory",
-        "name": "mckinistry",
+        "addr:street": "Howard Street",
+        "amenity": "restaurant",
+        "name": "Flame",
         "id": "node/6815757288"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-6.093013286590576, 54.50821437818363]
+        "coordinates": [-5.9334585, 54.5957029]
       }
     }
   ]

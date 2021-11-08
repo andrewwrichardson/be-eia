@@ -61,20 +61,6 @@
         "type": "Point",
         "coordinates": [-5.9334585, 54.5957029]
       }
-    },
-    {
-      "type": "Feature",
-      "id": "node/6815757288",
-      "properties": {
-        "addr:street": "inside boundary",
-        "amenity": "factory",
-        "name": "mckinistry",
-        "id": "node/6815757288"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-5.9344303607940665, 54.59644014432653]
-      }
     }
   ]
 }

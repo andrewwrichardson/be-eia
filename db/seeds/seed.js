@@ -88,7 +88,7 @@ const seed = async (data) => {
   );
 
   const log = await db.query(queryString);
-  console.log(log, "seed");
+
   await db.query(`
         CREATE TABLE comments (
         comment_id SERIAL PRIMARY KEY NOT NULL,

@@ -1,16 +1,16 @@
 const db = require("../db/connection");
 const { seed } = require("../db/seeds/seed");
-const testData = require("../db/data/test-data/index");
-const geojson = require("../db/data/test-data/osm-input.json");
-const dataClipOutput = require("../db/data/test-data/public-api-dataclip-output.json");
-const geojsonNotMutated = require("../db/data/test-data/osm-input-not-mutated.json");
-const { dataclip, getBbox } = require("../db/utils/public-api-dataclip.util");
+const testData = require("../db/data/test-data/public-api-data/index");
+const geojson = require("../db/data/test-data/public-api-data/osm-input.json");
+const dataClipOutput = require("../db/data/test-data/public-api-data/public-api-dataclip-output.json");
+const geojsonNotMutated = require("../db/data/test-data/public-api-data/osm-input-not-mutated.json");
+const { dataclip, getBbox } = require("../db/utils/public-apis.utils");
 
 beforeEach(() => seed(testData));
 afterAll(() => db.end());
 
 describe("DataClip util function", () => {
-  test.only("should not mutate inputs", async () => {
+  test("should not mutate inputs", async () => {
     const project_id = 1;
     const api_id = 1;
     const assessmentArea = await db.query(
@@ -63,7 +63,7 @@ describe("getBbox", () => {
       [project_id]
     );
     const result = getBbox(assessmentArea.rows[0].json_build_object);
-    console.log(result);
+
     const Bbox = {
       minLat: 54.502103258,
       maxLat: 54.509239038,

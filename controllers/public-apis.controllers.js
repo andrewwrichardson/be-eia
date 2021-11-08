@@ -1,6 +1,11 @@
-const { retrieveOSMRivers } = require(`../models/public-apis.models`);
+const {
+  retrieveOSMRivers,
+  retrieveOSMWaterBody,
+  retrieveOSMHistoricMono,
+  retrieveOSMBuildings,
+} = require(`../models/public-apis.models`);
 const db = require("../db/connection");
-const { getBbox } = require(`../db/utils/public-api-dataclip.util`);
+const { getBbox } = require(`../db/utils/public-apis.utils`);
 
 exports.callPublicApis = async (req, res, next) => {
   try {
@@ -18,9 +23,34 @@ exports.callPublicApis = async (req, res, next) => {
 
     const bbox = getBbox(assessmentAreaFC);
 
-    const respMsg = await retrieveOSMRivers(bbox, project_id, assessmentAreaFC);
-    console.log(respMsg, "<---");
-    res.status(200).send({ respMsg });
+    const msg = await Promise.allSettled([
+      retrieveOSMRivers(bbox, project_id, assessmentAreaFC),
+      retrieveOSMWaterBody(bbox, project_id, assessmentAreaFC),
+      retrieveOSMHistoricMono(bbox, project_id, assessmentAreaFC),
+      retrieveOSMBuildings(bbox, project_id, assessmentAreaFC),
+    ]);
+
+    const bool = msg.every((apiCall) => {
+      apiCall.status === "fullfilled";
+    });
+    console.log(msg, typeof bool);
+
+    failedArr = [];
+    if (bool === true) {
+      res
+        .status(200)
+        .send({ status: 200, msg: "All api data retrieved successfully" });
+    } else {
+      msg.forEach((outcome) => {
+        if (outcome.status === "rejected") {
+          failedArr.push(outcome.api_id);
+        }
+      });
+      res.status(200).send({
+        status: 206,
+        msg: `Could not retrieve data from the following Api(s) ${failedArr}`,
+      });
+    }
   } catch (err) {
     console.log(err);
   }

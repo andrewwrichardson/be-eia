@@ -96,22 +96,30 @@ exports.dataclip = async (geojson, project_id, api_id, assessmentArea) => {
   return receptors;
 };
 
-exports.insertReceptorsData = async (receptors, project_id) => {
+exports.insertReceptorsData = async (receptors, project_id, api_id) => {
   await db.query(`DELETE FROM receptors WHERE project_id = $1;`, [project_id]);
 
   const formattedReceptors = jsToPgFormatReceptors(receptors);
-  console.log(formattedReceptors, "formatted receptors");
+
   queryString = format(
     `INSERT INTO receptors (project_id, api_id, geom, osm_id, type, properties) VALUES %L RETURNING *;`,
     formattedReceptors
   );
 
   const result = await db.query(queryString);
-  // if (result.rows.length > 0) {
-  //   return { successful: true };
-  // } else {
-  //   return Promise.reject({ status: 404, msg: "Not Found" });
-  // }
+
+  if (result.rows.length > 0) {
+    return {
+      status: 200,
+      msg: `api ${api_id} retrieved data sucessfully`,
+      api_id: api_id,
+    };
+  } else {
+    return Promise.reject({
+      status: 404,
+      msg: "No data added to receptors database",
+    });
+  }
   const log = await db.query(`select* from receptors;`);
   console.log("<------>", log);
 };
