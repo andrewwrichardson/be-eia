@@ -4,19 +4,8 @@ const db = require("../connection");
 const format = require("pg-format");
 fs = require("fs");
 
-exports.dataclip = async (geojson, project_id, api_id) => {
-  const publicApis = await db.query(`SELECT * FROM public_apis;`);
-
-  const assessmentArea = await db.query(
-    `SELECT json_build_object(
-        'type', 'FeatureCollection',
-        'features', json_agg(json_build_object('type','Feature','properties',json_build_object(),'geometry',ST_AsGeoJSON(assessment_areas.geom)::json)))
-         FROM assessment_areas
-         WHERE project_id = $1;`,
-    [project_id]
-  );
-
-  let assessmentAreaPolygon = assessmentArea.rows[0].json_build_object;
+exports.dataclip = async (geojson, project_id, assessmentArea) => {
+  let assessmentAreaPolygon = assessmentArea;
 
   //// format points
   const points = [];
@@ -100,10 +89,11 @@ exports.dataclip = async (geojson, project_id, api_id) => {
     },
   ];
 
+  // console.log(receptors, "receptors");
+  // fs.writeFile(`receptors.txt`, JSON.stringify(receptors), function (err) {
+  //   if (err) return console.log(err);
+  // });
   console.log(receptors, "receptors");
-  fs.writeFile(`receptors.txt`, JSON.stringify(receptors), function (err) {
-    if (err) return console.log(err);
-  });
   return receptors;
 };
 
@@ -114,7 +104,20 @@ exports.insertReceptorsData = async (receptors) => {
     formattedReceptors
   );
 
-  const log = await db.query(queryString);
+  await db.query(queryString);
 
-  await db.query(`select* from receptors;`);
+  const log = await db.query(`select* from receptors;`);
+  console.log(log);
+};
+
+exports.getBbox = (assessmentArea) => {
+  const BboxArr = turf.bbox(assessmentArea);
+  const Bbox = {
+    minLat: BboxArr[1],
+    maxLat: BboxArr[3],
+    minLong: BboxArr[0],
+    maxLong: BboxArr[2],
+  };
+
+  return Bbox;
 };

@@ -1,8 +1,8 @@
-const endpoints = require('../endpoints.json');
+const endpoints = require("../endpoints.json");
 
-exports.getApi = (req, res, next) => {
-	res
-		.status(200)
-		.send({ endpoints })
-		.catch((err) => next(err));
+exports.callPublicApi = (req, res, next) => {
+  res
+    .status(200)
+    .send({ endpoints })
+    .catch((err) => next(err));
 };
