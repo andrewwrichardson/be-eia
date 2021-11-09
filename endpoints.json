@@ -317,6 +317,91 @@
             ]
         }
     },
+    "GET /api/comments/:receptors_id": {
+        "description": "serves an object containing all comments for a specific receptor",
+        "queries": [],
+        "exampleResponse": {
+            "comments": [
+                {
+                    "receptor_id": 1,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/45002074",
+                    "type": "Polygon",
+                    "properties": {
+                        "addr:city": "Belfast",
+                        "addr:country": "GB",
+                        "addr:housename": "Wellington Buildings",
+                        "addr:street": "Wellington Street",
+                        "building": "yes",
+                        "id": "way/45002074"
+                    },
+                    "comment_id": 1,
+                    "impact": "low",
+                    "comment": "bla bla bla bla bla",
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [-5.9320938, 54.5964287],
+                                            [-5.9321077, 54.5965509],
+                                            [-5.9326629, 54.5965297],
+                                            [-5.932649, 54.5964076],
+                                            [-5.9325301, 54.5964121],
+                                            [-5.9323714, 54.5964182],
+                                            [-5.9322525, 54.5964227],
+                                            [-5.9322128, 54.5964242],
+                                            [-5.9321732, 54.5964257],
+                                            [-5.9320938, 54.5964287]
+                                        ]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "receptor_id": 1,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/60611449",
+                    "type": "LineString",
+                    "properties": {
+                        "name": "Lagan Navigation (abandoned)",
+                        "notes": "non-navigable",
+                        "source": "survey",
+                        "waterway": "canal",
+                        "id": "way/60611449"
+                    },
+                    "comment_id": 2,
+                    "impact": "high",
+                    "comment": "bla bla bla bla bla",
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "LineString",
+                                    "coordinates": [
+                                        [-6.2414445, 54.5104985],
+                                        [-6.2427297, 54.5110303]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
     "POST /api/comments": {
         "description": "adds new project",
         "requestBody": {
