@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/45002074",
+      "properties": {
+        "addr:city": "Inside Boundary",
+        "addr:country": "GB",
+        "addr:housename": "Wellington Buildings",
+        "addr:street": "Wellington Street",
+        "building": "yes",
+        "id": "way/45002074"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-6.079832911491394, 54.50332586662694],
+            [-6.080017983913422, 54.503296275257235],
+            [-6.079969704151154, 54.50319971379654],
+            [-6.0797953605651855, 54.50323709245355],
+            [-6.079832911491394, 54.50332586662694]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/60611449",
+      "properties": {
+        "name": "Should be trimmed",
+        "notes": "non-navigable",
+        "source": "survey",
+        "waterway": "canal",
+        "id": "way/60611449"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-6.079344749450684, 54.503835146315815],
+          [-6.08092188835144, 54.50348628262655],
+          [-6.083014011383057, 54.50272001799666]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "location": "Outside boundary" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-6.078228950500488, 54.50440204345861]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6815757288",
+      "properties": {
+        "addr:street": "inside boundary",
+        "amenity": "factory",
+        "name": "mckinistry",
+        "id": "node/6815757288"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-6.093013286590576, 54.50821437818363]
+      }
+    }
+  ]
+}
