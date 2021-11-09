@@ -1,24 +1,10 @@
 [
   {
     "project_id": 1,
-    "api_id": 1,
+    "api_id": 2,
     "geometry": {
       "type": "FeatureCollection",
       "features": [
-        {
-          "type": "Feature",
-          "id": "node/6815757288",
-          "properties": {
-            "addr:street": "inside boundary",
-            "amenity": "factory",
-            "name": "mckinistry",
-            "id": "node/6815757288"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-6.093013286590576, 54.50821437818363]
-          }
-        },
         {
           "type": "Feature",
           "properties": {
@@ -41,7 +27,48 @@
             54.50368238398181
           ],
           "id": "way/60611449"
-        },
+        }
+      ]
+    }
+  },
+  {
+    "project_id": 1,
+    "api_id": 3,
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Should be trimmed",
+            "notes": "non-navigable",
+            "source": "survey",
+            "waterway": "canal",
+            "id": "way/60611449"
+          },
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [-6.080035355629933, 54.50368238398181],
+              [-6.08092188835144, 54.50348628262655],
+              [-6.08208026926766, 54.503062012012144]
+            ]
+          },
+          "bbox": [
+            -6.08208026926766, 54.503062012012144, -6.080035355629933,
+            54.50368238398181
+          ],
+          "id": "way/60611449"
+        }
+      ]
+    }
+  },
+  {
+    "project_id": 1,
+    "api_id": 1,
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
         {
           "type": "Feature",
           "properties": {

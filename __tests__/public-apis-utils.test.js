@@ -12,7 +12,6 @@ afterAll(() => db.end());
 describe("DataClip util function", () => {
   test("should not mutate inputs", async () => {
     const project_id = 1;
-    const api_id = 1;
     const assessmentArea = await db.query(
       `SELECT json_build_object(
                 'type', 'FeatureCollection',
@@ -24,15 +23,9 @@ describe("DataClip util function", () => {
 
     const assessmentAreaFC = assessmentArea.rows[0].json_build_object;
 
-    const result = await dataclip(
-      geojson,
-      project_id,
-      api_id,
-      assessmentAreaFC
-    );
+    const result = await dataclip(geojson, project_id, assessmentAreaFC);
     expect(geojson).toEqual(geojsonNotMutated);
     expect(project_id).toEqual(1);
-    expect(api_id).toEqual(1);
   });
   test("Output should be in a prescribed format", async () => {
     const project_id = 1;
@@ -46,7 +39,8 @@ describe("DataClip util function", () => {
     );
 
     const assessmentAreaFC = assessmentArea.rows[0].json_build_object;
-    const result = await dataclip(geojson, 1, 1, assessmentAreaFC);
+    const result = await dataclip(geojson, 1, assessmentAreaFC);
+
     expect(result).toEqual(dataClipOutput);
   });
 });
@@ -70,6 +64,7 @@ describe("getBbox", () => {
       minLong: -6.094332933,
       maxLong: -6.079859734,
     };
+
     expect(result).toEqual(Bbox);
   });
 });

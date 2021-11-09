@@ -2,9 +2,10 @@ const turf = require("@turf/turf");
 const { jsToPgFormatReceptors } = require(`./data-manipulation.utils`);
 const db = require("../connection");
 const format = require("pg-format");
+const publicApiRouter = require("../../routers/public-api.router");
 fs = require("fs");
 
-exports.dataclip = async (geojson, project_id, api_id, assessmentArea) => {
+exports.dataclip = async (geojson, project_id, assessmentArea) => {
   let assessmentAreaPolygon = assessmentArea;
 
   //// format points
@@ -59,7 +60,6 @@ exports.dataclip = async (geojson, project_id, api_id, assessmentArea) => {
     });
   });
 
-  //find overlapping polygon
   const polygons = [];
   geojson.features.forEach((feature) => {
     if (feature.geometry.type === "Polygon") {
@@ -81,22 +81,33 @@ exports.dataclip = async (geojson, project_id, api_id, assessmentArea) => {
     });
   });
 
-  const receptors = [
-    {
-      project_id: project_id,
-      api_id: api_id,
-      geometry: allFeatures,
-    },
-  ];
-
-  // fs.writeFile(`receptorsV1.json`, JSON.stringify(receptors), function (err) {
-  //   if (err) return console.log(err);
-  // });
+  let receptors = await addApiId(project_id, allFeatures);
 
   return receptors;
 };
 
-exports.insertReceptorsData = async (receptors, project_id, api_id) => {
+const addApiId = async (project_id, allFeatures) => {
+  const receptors = [];
+
+  const public_apis = await db.query(`SELECT * FROM public_apis;`);
+
+  allFeatures.features.forEach((feature) => {
+    Object.keys(feature.properties).forEach((key) => {
+      public_apis.rows.forEach((api, index) => {
+        if (key.includes(api.keywords)) {
+          receptors.push({
+            project_id: project_id,
+            api_id: public_apis.rows[index].api_id,
+            geometry: turf.featureCollection([feature]),
+          });
+        }
+      });
+    });
+  });
+  return receptors;
+};
+
+exports.insertReceptorsData = async (receptors, project_id) => {
   await db.query(`DELETE FROM receptors WHERE project_id = $1;`, [project_id]);
 
   const formattedReceptors = jsToPgFormatReceptors(receptors);
@@ -110,18 +121,9 @@ exports.insertReceptorsData = async (receptors, project_id, api_id) => {
 
   if (result.rows.length > 0) {
     return {
-      status: 200,
-      msg: `api ${api_id} retrieved data sucessfully`,
-      api_id: api_id,
+      msg: `OK`,
     };
-  } else {
-    return Promise.reject({
-      status: 404,
-      msg: "No data added to receptors database",
-    });
   }
-  const log = await db.query(`select* from receptors;`);
-  console.log("<------>", log);
 };
 
 exports.getBbox = (assessmentArea) => {

@@ -54,13 +54,14 @@ const seed = async (data) => {
         api_id SERIAL PRIMARY KEY NOT NULL,
         url TEXT NOT NULL,
         source TEXT NOT NULL,
-        category TEXT NOT NULL
+        category TEXT NOT NULL,
+        keywords TEXT NOT NULL 
     );
     `);
 
   const formattedPublicApis = jsToPgFormatPublicApis(publicApis);
   queryString = format(
-    `INSERT INTO public_apis (url, source, category) VALUES %L RETURNING *;`,
+    `INSERT INTO public_apis (url, source, category, keywords) VALUES %L RETURNING *;`,
     formattedPublicApis
   );
   await db.query(queryString);
@@ -87,7 +88,7 @@ const seed = async (data) => {
     formattedReceptors
   );
 
-  const log = await db.query(queryString);
+  await db.query(queryString);
 
   await db.query(`
         CREATE TABLE comments (
