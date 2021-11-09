@@ -1,0 +1,99 @@
+[
+  {
+    "project_id": 1,
+    "api_id": 2,
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Should be trimmed",
+            "notes": "non-navigable",
+            "source": "survey",
+            "waterway": "canal",
+            "id": "way/60611449"
+          },
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [-6.080035355629933, 54.50368238398181],
+              [-6.08092188835144, 54.50348628262655],
+              [-6.08208026926766, 54.503062012012144]
+            ]
+          },
+          "bbox": [
+            -6.08208026926766, 54.503062012012144, -6.080035355629933,
+            54.50368238398181
+          ],
+          "id": "way/60611449"
+        }
+      ]
+    }
+  },
+  {
+    "project_id": 1,
+    "api_id": 3,
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Should be trimmed",
+            "notes": "non-navigable",
+            "source": "survey",
+            "waterway": "canal",
+            "id": "way/60611449"
+          },
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [-6.080035355629933, 54.50368238398181],
+              [-6.08092188835144, 54.50348628262655],
+              [-6.08208026926766, 54.503062012012144]
+            ]
+          },
+          "bbox": [
+            -6.08208026926766, 54.503062012012144, -6.080035355629933,
+            54.50368238398181
+          ],
+          "id": "way/60611449"
+        }
+      ]
+    }
+  },
+  {
+    "project_id": 1,
+    "api_id": 1,
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "addr:city": "Inside Boundary",
+            "addr:country": "GB",
+            "addr:housename": "Wellington Buildings",
+            "addr:street": "Wellington Street",
+            "building": "yes",
+            "id": "way/45002074"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [-6.080017983913422, 54.503296275257235],
+                [-6.079969704151154, 54.50319971379654],
+                [-6.079893750585646, 54.503215997976184],
+                [-6.079945891356201, 54.5033078021908],
+                [-6.080017983913422, 54.503296275257235]
+              ]
+            ]
+          },
+          "id": "way/45002074"
+        }
+      ]
+    }
+  }
+]
