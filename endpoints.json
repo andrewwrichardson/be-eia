@@ -317,7 +317,7 @@
             ]
         }
     },
-    "GET /api/comments/:receptors_id": {
+    "GET /api/comments/receptor/:receptors_id": {
         "description": "serves an object containing all comments for a specific receptor",
         "queries": [],
         "exampleResponse": {
