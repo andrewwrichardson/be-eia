@@ -2,7 +2,7 @@ const db = require('../db/connection');
 
 exports.fetchComments = async (project_id) => {
     let queryStr = `SELECT * FROM (SELECT receptors.receptor_id, receptors.project_id, receptors.api_id, receptors.osm_id, receptors.type, receptors.properties, json_build_object('type', 'FeatureCollection', 'features', json_agg(json_build_object('type','Feature','properties',json_build_object(),'geometry',ST_AsGeoJSON(receptors.geom)::json))) FROM receptors GROUP BY receptors.receptor_id) as recepts
-    JOIN comments ON recepts.receptor_id = comments.comment_id
+    JOIN comments ON recepts.receptor_id = comments.receptor_id
     WHERE project_id = $1;`;
     let queryVals = [project_id];
 
@@ -33,8 +33,6 @@ exports.fetchCommentsByReceptor = async (receptor_id) => {
     if (result.rows.length === 0) {
         return Promise.reject({ status: 404, msg: 'Not Found' });
     }
-
-    console.log(result.rows);
 
     return result.rows;
 };
