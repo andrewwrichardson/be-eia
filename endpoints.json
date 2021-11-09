@@ -1,5 +1,440 @@
 {
-	"GET /api": {
-		"description": "serves up a json representation of all the available endpoints of the api"
-	}
+    "GET /api": {
+        "description": "serves up a json representation of all the available endpoints of the api"
+    },
+    "GET /api/projects": {
+        "description": "serves an array of all projects",
+        "queries": [],
+        "exampleResponse": {
+            "projects": [
+                {
+                    "project_id": 1,
+                    "project_name": "Project One",
+                    "image_url": "https://www.stevensegallery.com/140/100"
+                },
+                {
+                    "project_id": 2,
+                    "project_name": "Project Two",
+                    "image_url": "https://www.stevensegallery.com/140/100"
+                }
+            ]
+        }
+    },
+    "GET /api/projects/:project_id": {
+        "description": "serves an object with project information",
+        "queries": [],
+        "exampleResponse": {
+            "project": {
+                "project_id": 1,
+                "project_name": "Project One",
+                "image_url": "https://www.stevensegallery.com/140/100"
+            }
+        }
+    },
+    "POST /api/projects": {
+        "description": "adds new project",
+        "requestBody": {
+            "project": {
+                "project_name": "Project Three",
+                "image_url": "https://www.stevensegallery.com/140/100"
+            }
+        },
+        "exampleResponse": {
+            "project": {
+                "project_id": 3,
+                "project_name": "Project Three",
+                "image_url": "https://www.stevensegallery.com/140/100"
+            }
+        }
+    },
+    "PATCH /api/projects/:project_id": {
+        "description": "edit project",
+        "requestBody": {
+            "project": {
+                "project_name": "New Project Name",
+                "image_url": "https://www.stevensegallery.com/140/100"
+            }
+        },
+        "exampleResponse": {
+            "project": {
+                "project_id": 2,
+                "project_name": "New Project Name",
+                "image_url": "https://www.stevensegallery.com/140/100"
+            }
+        }
+    },
+    "DELETE /api/projects/:project_id": {
+        "description": "delete project",
+        "requestBody": {},
+        "exampleResponse": {}
+    },
+    "GET /api/assessment_areas/:project_id": {
+        "description": "serves an object containing the assessment area for a specific project",
+        "queries": [],
+        "exampleResponse": {
+            "assessment_area": {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "properties": {},
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [26.9106781482697, 46.5403992977198],
+                                    [26.9122016429901, 46.5403992977198],
+                                    [26.9122016429901, 46.5409970545167],
+                                    [26.9106781482697, 46.5409970545167],
+                                    [26.9106781482697, 46.5403992977198]
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "POST /api/assessment_areas": {
+        "description": "adds new project",
+        "requestBody": {
+            "assessment_area": {
+                "project_id": 1,
+                "geometry": {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": {},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [
+                                    [
+                                        [
+                                            26.910678148269653,
+                                            46.540399297719794
+                                        ],
+                                        [26.91220164299011, 46.540399297719794],
+                                        [26.91220164299011, 46.54099705451672],
+                                        [26.910678148269653, 46.54099705451672],
+                                        [26.910678148269653, 46.540399297719794]
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "GET /api/receptors/:project_id": {
+        "description": "serves an object containing receptors for a specific project",
+        "queries": [],
+        "exampleResponse": {
+            "receptors": [
+                {
+                    "receptor_id": 1,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/45002074",
+                    "type": "Polygon",
+                    "properties": {
+                        "addr:city": "Belfast",
+                        "addr:country": "GB",
+                        "addr:housename": "Wellington Buildings",
+                        "addr:street": "Wellington Street",
+                        "building": "yes",
+                        "id": "way/45002074"
+                    },
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [-5.9320938, 54.5964287],
+                                            [-5.9321077, 54.5965509],
+                                            [-5.9326629, 54.5965297],
+                                            [-5.932649, 54.5964076],
+                                            [-5.9325301, 54.5964121],
+                                            [-5.9323714, 54.5964182],
+                                            [-5.9322525, 54.5964227],
+                                            [-5.9322128, 54.5964242],
+                                            [-5.9321732, 54.5964257],
+                                            [-5.9320938, 54.5964287]
+                                        ]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "receptor_id": 2,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/60611449",
+                    "type": "LineString",
+                    "properties": {
+                        "name": "Lagan Navigation (abandoned)",
+                        "notes": "non-navigable",
+                        "source": "survey",
+                        "waterway": "canal",
+                        "id": "way/60611449"
+                    },
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "LineString",
+                                    "coordinates": [
+                                        [-6.2414445, 54.5104985],
+                                        [-6.2427297, 54.5110303]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "receptor_id": 3,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "node/6815757288",
+                    "type": "Point",
+                    "properties": {
+                        "addr:street": "Howard Street",
+                        "amenity": "restaurant",
+                        "name": "Flame",
+                        "id": "node/6815757288"
+                    },
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [-5.9334585, 54.5957029]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "GET /api/comments/receptors-comments/:project_id": {
+        "description": "serves an object containing all comments for receptors for a specific project",
+        "queries": [],
+        "exampleResponse": {
+            "comments": [
+                {
+                    "receptor_id": 1,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/45002074",
+                    "type": "Polygon",
+                    "properties": {
+                        "addr:city": "Belfast",
+                        "addr:country": "GB",
+                        "addr:housename": "Wellington Buildings",
+                        "addr:street": "Wellington Street",
+                        "building": "yes",
+                        "id": "way/45002074"
+                    },
+                    "comment_id": 1,
+                    "impact": "low",
+                    "comment": "bla bla bla bla bla",
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [-5.9320938, 54.5964287],
+                                            [-5.9321077, 54.5965509],
+                                            [-5.9326629, 54.5965297],
+                                            [-5.932649, 54.5964076],
+                                            [-5.9325301, 54.5964121],
+                                            [-5.9323714, 54.5964182],
+                                            [-5.9322525, 54.5964227],
+                                            [-5.9322128, 54.5964242],
+                                            [-5.9321732, 54.5964257],
+                                            [-5.9320938, 54.5964287]
+                                        ]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "receptor_id": 2,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/60611449",
+                    "type": "LineString",
+                    "properties": {
+                        "name": "Lagan Navigation (abandoned)",
+                        "notes": "non-navigable",
+                        "source": "survey",
+                        "waterway": "canal",
+                        "id": "way/60611449"
+                    },
+                    "comment_id": 2,
+                    "impact": "high",
+                    "comment": "bla bla bla bla bla",
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "LineString",
+                                    "coordinates": [
+                                        [-6.2414445, 54.5104985],
+                                        [-6.2427297, 54.5110303]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "GET /api/comments/receptor/:receptors_id": {
+        "description": "serves an object containing all comments for a specific receptor",
+        "queries": [],
+        "exampleResponse": {
+            "comments": [
+                {
+                    "receptor_id": 1,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/45002074",
+                    "type": "Polygon",
+                    "properties": {
+                        "addr:city": "Belfast",
+                        "addr:country": "GB",
+                        "addr:housename": "Wellington Buildings",
+                        "addr:street": "Wellington Street",
+                        "building": "yes",
+                        "id": "way/45002074"
+                    },
+                    "comment_id": 1,
+                    "impact": "low",
+                    "comment": "bla bla bla bla bla",
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [-5.9320938, 54.5964287],
+                                            [-5.9321077, 54.5965509],
+                                            [-5.9326629, 54.5965297],
+                                            [-5.932649, 54.5964076],
+                                            [-5.9325301, 54.5964121],
+                                            [-5.9323714, 54.5964182],
+                                            [-5.9322525, 54.5964227],
+                                            [-5.9322128, 54.5964242],
+                                            [-5.9321732, 54.5964257],
+                                            [-5.9320938, 54.5964287]
+                                        ]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "receptor_id": 1,
+                    "project_id": 1,
+                    "api_id": 1,
+                    "osm_id": "way/60611449",
+                    "type": "LineString",
+                    "properties": {
+                        "name": "Lagan Navigation (abandoned)",
+                        "notes": "non-navigable",
+                        "source": "survey",
+                        "waterway": "canal",
+                        "id": "way/60611449"
+                    },
+                    "comment_id": 2,
+                    "impact": "high",
+                    "comment": "bla bla bla bla bla",
+                    "geometry": {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "LineString",
+                                    "coordinates": [
+                                        [-6.2414445, 54.5104985],
+                                        [-6.2427297, 54.5110303]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "POST /api/comments": {
+        "description": "adds new project",
+        "requestBody": {
+            "newComment": {
+                "receptor_id": 1,
+                "impact": "Minor",
+                "comment": "yes no yes no"
+            }
+        },
+        "exampleResponse": {
+            "comment": {
+                "comment_id": 3,
+                "receptor_id": 1,
+                "impact": "Minor",
+                "comment": "yes no yes no"
+            }
+        }
+    },
+    "PATCH /api/comments/:comment_id": {
+        "description": "adds new project",
+        "requestBody": {
+            "updatedComment": {
+                "impact": "Major",
+                "comment": "yes no yes no"
+            }
+        },
+        "exampleResponse": {
+            "comment": {
+                "comment_id": 1,
+                "receptor_id": 1,
+                "impact": "Major",
+                "comment": "yes no yes no"
+            }
+        }
+    }
 }
