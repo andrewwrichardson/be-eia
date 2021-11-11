@@ -2,7 +2,6 @@ const turf = require('@turf/turf');
 const { jsToPgFormatReceptors } = require(`./data-manipulation.utils`);
 const db = require('../connection');
 const format = require('pg-format');
-fs = require('fs');
 const lodash = require('lodash');
 
 exports.dataclip = async (geojson, project_id, assessmentArea) => {
