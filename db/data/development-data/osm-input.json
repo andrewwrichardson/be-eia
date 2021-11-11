@@ -64,7 +64,7 @@
         },
         {
             "type": "Feature",
-            "properties": {},
+            "properties": { "natural": "tree" },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
@@ -77,7 +77,7 @@
         },
         {
             "type": "Feature",
-            "properties": {},
+            "properties": { "natural": "wood" },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -93,7 +93,7 @@
         },
         {
             "type": "Feature",
-            "properties": {},
+            "properties": { "natural": "water" },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [

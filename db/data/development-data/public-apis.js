@@ -1,7 +1,7 @@
 module.exports = [
     {
         url: 'https://lz4.overpass-api.de/api/interpreter/?data=[out:json][timeout:5000];(node["addr:street"]',
-        source: 'Open Steet Map',
+        source: 'Open Street Map',
         category: 'Community and Private Assets',
         keywords: ['building'],
     },
