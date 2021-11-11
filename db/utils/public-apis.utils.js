@@ -7,9 +7,9 @@ const lodash = require('lodash');
 
 exports.dataclip = async (geojson, project_id, assessmentArea) => {
     let assessmentAreaPolygon = assessmentArea;
-    geojson1 = lodash.cloneDeep(geojson);
+    let geojsonCopy = lodash.cloneDeep(geojson);
     const points = [];
-    geojson1.features.forEach((feature) => {
+    geojsonCopy.features.forEach((feature) => {
         if (feature.geometry.type === 'Point') {
             points.push(feature);
         }
@@ -24,7 +24,7 @@ exports.dataclip = async (geojson, project_id, assessmentArea) => {
 
     //// find overlapping lines
     const lineString = [];
-    geojson1.features.forEach((feature) => {
+    geojsonCopy.features.forEach((feature) => {
         if (feature.geometry.type === 'LineString') {
             lineString.push(feature);
         }
@@ -59,7 +59,7 @@ exports.dataclip = async (geojson, project_id, assessmentArea) => {
     });
 
     const polygons = [];
-    geojson1.features.forEach((feature) => {
+    geojsonCopy.features.forEach((feature) => {
         if (feature.geometry.type === 'Polygon') {
             polygons.push(feature);
         }
