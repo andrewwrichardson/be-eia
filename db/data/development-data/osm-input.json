@@ -10,7 +10,8 @@
                 "addr:housename": "Wellington Buildings",
                 "addr:street": "Wellington Street",
                 "building": "yes",
-                "id": "way/45002074"
+                "id": "way/45002074",
+                "desc": "Building - Wellington Buildings - Wellington Street"
             },
             "geometry": {
                 "type": "Polygon",
@@ -38,7 +39,8 @@
                 "notes": "non-navigable",
                 "source": "survey",
                 "waterway": "canal",
-                "id": "way/60611449"
+                "id": "way/60611449",
+                "desc": "Waterway - Lagan Navigation - Canal"
             },
             "geometry": {
                 "type": "LineString",
@@ -55,7 +57,8 @@
                 "addr:street": "Howard Street",
                 "amenity": "restaurant",
                 "name": "Flame",
-                "id": "node/6815757288"
+                "id": "node/6815757288",
+                "desc": "Howard Street - Flame - Restaurant"
             },
             "geometry": {
                 "type": "Point",
@@ -64,7 +67,7 @@
         },
         {
             "type": "Feature",
-            "properties": { "natural": "tree" },
+            "properties": { "natural": "tree", "desc": "tree" },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
@@ -77,7 +80,7 @@
         },
         {
             "type": "Feature",
-            "properties": { "natural": "wood" },
+            "properties": { "natural": "wood", "desc": "wood" },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -93,7 +96,7 @@
         },
         {
             "type": "Feature",
-            "properties": { "natural": "water" },
+            "properties": { "natural": "water", "desc": "water" },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
