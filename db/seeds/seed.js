@@ -11,7 +11,6 @@ const {
 const seed = async (data) => {
     const { assessmentAreas, comments, projects, publicApis, receptors } = data;
 
-
     await db.query(`CREATE EXTENSION IF NOT EXISTS postgis;`);
     await db.query(
         'DROP TABLE IF EXISTS assessment_areas, comments, projects, public_apis, receptors CASCADE;'
@@ -61,12 +60,12 @@ const seed = async (data) => {
     );
     `);
 
-  const formattedPublicApis = jsToPgFormatPublicApis(publicApis);
-  queryString = format(
-    `INSERT INTO public_apis (url, source, category, keywords) VALUES %L RETURNING *;`,
-    formattedPublicApis
-  );
-  await db.query(queryString);
+    const formattedPublicApis = jsToPgFormatPublicApis(publicApis);
+    queryString = format(
+        `INSERT INTO public_apis (url, source, category, keywords) VALUES %L RETURNING *;`,
+        formattedPublicApis
+    );
+    await db.query(queryString);
 
     await db.query(`
     CREATE TABLE receptors (
