@@ -2,17 +2,14 @@ const turf = require('@turf/turf');
 const { jsToPgFormatReceptors } = require(`./data-manipulation.utils`);
 const db = require('../connection');
 const format = require('pg-format');
-const publicApiRouter = require('../../routers/public-api.router');
-const { feature } = require('@turf/turf');
 fs = require('fs');
+const lodash = require('lodash');
 
 exports.dataclip = async (geojson, project_id, assessmentArea) => {
     let assessmentAreaPolygon = assessmentArea;
-
-    //// format points
-
+    geojson1 = lodash.cloneDeep(geojson);
     const points = [];
-    geojson.features.forEach((feature) => {
+    geojson1.features.forEach((feature) => {
         if (feature.geometry.type === 'Point') {
             points.push(feature);
         }
@@ -27,7 +24,7 @@ exports.dataclip = async (geojson, project_id, assessmentArea) => {
 
     //// find overlapping lines
     const lineString = [];
-    geojson.features.forEach((feature) => {
+    geojson1.features.forEach((feature) => {
         if (feature.geometry.type === 'LineString') {
             lineString.push(feature);
         }
@@ -62,7 +59,7 @@ exports.dataclip = async (geojson, project_id, assessmentArea) => {
     });
 
     const polygons = [];
-    geojson.features.forEach((feature) => {
+    geojson1.features.forEach((feature) => {
         if (feature.geometry.type === 'Polygon') {
             polygons.push(feature);
         }
@@ -82,30 +79,35 @@ exports.dataclip = async (geojson, project_id, assessmentArea) => {
         });
     });
 
-    let receptors = await addApiId(project_id, allFeatures);
-    receptors = addReceptorDesc(receptors);
-    return receptors;
-};
-
-const addApiId = async (project_id, allFeatures) => {
-    const receptors = [];
-
     const public_apis = await db.query(`SELECT * FROM public_apis;`);
 
-    allFeatures.features.forEach((feature) => {
-        Object.keys(feature.properties).forEach((key) => {
-            public_apis.rows.forEach((api, index) => {
-                if (key.includes(api.keywords)) {
-                    receptors.push({
-                        project_id: project_id,
-                        api_id: public_apis.rows[index].api_id,
-                        geometry: turf.featureCollection([feature]),
-                    });
-                }
+    const allFeaturesKey = addKeywords(allFeatures);
+
+    const receptors = addApiId(project_id, allFeaturesKey, public_apis);
+
+    const receptorsWithDesc = addReceptorDesc(receptors, public_apis);
+
+    return receptorsWithDesc;
+};
+
+const addApiId = (project_id, allFeatures, public_apis) => {
+    const receptors = [];
+
+    public_apis.rows.forEach((api, index) => {
+        allFeatures.features.forEach((feature) => {
+            let keys = Object.keys(feature.properties);
+            let bool = keys.some((key) => {
+                return key === api.keywords;
             });
+            if (bool) {
+                receptors.push({
+                    project_id: project_id,
+                    api_id: api.api_id,
+                    geometry: turf.featureCollection([feature]),
+                });
+            }
         });
     });
-
     return receptors;
 };
 
@@ -142,88 +144,83 @@ exports.getBbox = (assessmentArea) => {
     return Bbox;
 };
 
-const addReceptorDesc = (receptors) => {
-    const validBuildingKeys = [
-        'addr:city',
-        'addr:housename',
-        'addr:street',
-        'name',
-        'amenity',
-        'man_made',
-        'building',
-        'addr:postcode',
-        'amenity',
-    ];
-    const validWaterwayKeys = ['name', 'waterway', 'tunnel'];
+const addKeywords = (allFeatures) => {
+    allFeatures.features.forEach((feature) => {
+        let propArrValues = Object.values(feature.properties);
+        let propArrKeys = Object.keys(feature.properties);
 
-    const validWaterBodyKeys = ['name', 'water'];
-
-    const validMonoKeys = [
-        'historic',
-        'memorial',
-        'name',
-        'operator',
-        'building',
-        'historic:period',
-    ];
-
-    receptors.forEach((group) => {
-        if (group.api_id === 1) {
-            group.geometry.features.forEach((feature) => {
-                let desc = `Building -`;
-                const propArr = Object.keys(feature.properties);
-                propArr.forEach((prop) => {
-                    if (validBuildingKeys.includes(prop)) {
-                        desc = desc + ` ${feature.properties[prop]} -`;
-                    }
-                });
-                desc.slice(-1);
-                desc = desc.replace(/- yes -/, '');
-                feature.properties.desc = desc;
-                console.log(feature.properties.desc, '<---');
-            });
-        }
-        if (group.api_id === 2) {
-            group.geometry.features.forEach((feature) => {
-                let desc = `Waterway -`;
-                let propArr = Object.keys(feature.properties);
-                propArr.forEach((prop) => {
-                    if (validWaterwayKeys.includes(prop)) {
-                        desc = desc + ` ${feature.properties[prop]} -`;
-                    }
-                });
-                desc.slice(-1);
-                feature.properties.desc = desc;
-                console.log(feature.properties.desc, '<---');
-            });
-        }
-        if (group.api_id === 3) {
-            group.geometry.features.forEach((feature) => {
-                let desc = `Water Body -`;
-                let propArr = Object.keys(feature.properties);
-                propArr.forEach((prop) => {
-                    if (validWaterBodyKeys.includes(prop)) {
-                        desc = desc + ` ${feature.properties[prop]} -`;
-                    }
-                });
-                desc.slice(-1);
-                feature.properties.desc = desc;
-                console.log(feature.properties.desc, '<---');
-            });
-        }
-        if (group.api_id === 5) {
-            group.geometry.features.forEach((feature) => {
-                let desc = `Historic -`;
-                let propArr = Object.keys(feature.properties);
-                propArr.forEach((prop) => {
-                    if (validMonoKeys.includes(prop)) {
-                        desc = desc + ` ${feature.properties[prop]} -`;
-                    }
-                });
-                desc.slice(-1);
-                feature.properties.desc = desc;
-                console.log(feature.properties.desc, '<---');
-            });
+        if (
+            propArrKeys.includes('natural') &&
+            propArrValues.includes('water')
+        ) {
+            feature.properties.waterbody = 'Water Body';
+        } else if (
+            propArrKeys.includes('natural') &&
+            propArrValues.includes('wood')
+        ) {
+            feature.properties.wood = 'Wood';
+        } else if (
+            propArrKeys.includes('natural') &&
+            propArrValues.includes('tree')
+        ) {
+            feature.properties.tree = 'Tree';
+        } else if (propArrKeys.includes('addr:street')) {
+            feature.properties.building = 'building';
         }
     });
+    return allFeatures;
+};
+
+const addReceptorDesc = (receptors, public_apis) => {
+    const validKeys = [
+        [
+            'building',
+            'name',
+            'addr:housename',
+            'addr:street',
+            'addr:city',
+            'addr:postcode',
+            'amenity',
+            'man_made',
+        ],
+        ['name', 'waterway', 'tunnel', 'notes'],
+        ['name', 'water', 'notes', 'waterbody'],
+        [],
+        [
+            'historic',
+            'memorial',
+            'name',
+            'operator',
+            'building',
+            'historic:period',
+        ],
+        ['wood', 'name', 'leaf_type', 'operator'],
+        ['leaf_cycle', 'leaf_type', 'species', 'tree'],
+    ];
+
+    public_apis.rows.forEach((publicApi, idx) => {
+        receptors.forEach((group) => {
+            if (group.api_id === publicApi.api_id) {
+                group.geometry.features.forEach((feature) => {
+                    const propArr = Object.keys(feature.properties);
+
+                    let desc = ``;
+
+                    propArr.forEach((prop) => {
+                        let bool = validKeys[idx].some((key) => {
+                            return key === prop;
+                        });
+
+                        if (bool) {
+                            desc = desc + ` ${feature.properties[prop]} -`;
+                        }
+                    });
+                    desc = desc.replace(/- yes /, '');
+                    desc = desc.replace(/-$/, '');
+                    feature.properties.desc = desc;
+                });
+            }
+        });
+    });
+    return receptors;
 };

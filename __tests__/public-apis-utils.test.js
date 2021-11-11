@@ -1,10 +1,11 @@
 const db = require('../db/connection');
 const { seed } = require('../db/seeds/seed');
 const testData = require('../db/data/test-data/public-api-data/index');
-const geojson = require('../db/data/test-data/public-api-data/osm-input.json');
 const dataClipOutput = require('../db/data/test-data/public-api-data/public-api-dataclip-output.json');
-const geojsonNotMutated = require('../db/data/test-data/public-api-data/osm-input-not-mutated.json');
 const { dataclip, getBbox } = require('../db/utils/public-apis.utils');
+
+const geojson = require('../db/data/test-data/public-api-data/osm-input.json');
+const geojsonNotMutated = require('../db/data/test-data/public-api-data/osm-input-not-mutated.json');
 
 beforeEach(() => seed(testData));
 afterAll(() => db.end());
@@ -24,10 +25,13 @@ describe('DataClip util function', () => {
         const assessmentAreaFC = assessmentArea.rows[0].json_build_object;
 
         const result = await dataclip(geojson, project_id, assessmentAreaFC);
+        geojson.features.forEach((feature) => {});
+
         expect(geojson).toEqual(geojsonNotMutated);
+
         expect(project_id).toEqual(1);
     });
-    test.only('Output should be in a prescribed format', async () => {
+    test('Output should be in a prescribed format', async () => {
         const project_id = 1;
         const assessmentArea = await db.query(
             `SELECT json_build_object(

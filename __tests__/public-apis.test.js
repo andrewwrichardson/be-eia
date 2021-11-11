@@ -9,7 +9,7 @@ afterAll(() => db.end());
 jest.setTimeout(30000);
 
 describe('GET - initiate public-api', () => {
-    test.only('returns OSM data - status 200', () => {
+    test('returns OSM data - status 200', () => {
         return request(app)
             .get(`/api/public_apis/1`)
             .expect(200)
